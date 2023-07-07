@@ -17,3 +17,5 @@ extends AnimatableBody2D
 
 ## If the player is inside this area, close the hand
 @onready var hand_area: Area2D = $HandArea
+
+@onready var anim_player: AnimationPlayer = $AnimationPlayer

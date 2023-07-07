@@ -11,10 +11,11 @@ radius = 24.3516
 script = ExtResource("1_rw13k")
 
 [node name="Claw" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_o3o3p")]
+position = Vector2(512, 0)
 target = NodePath("../IAmAPlayer")
 
 [node name="IAmAPlayer" type="CharacterBody2D" parent="."]
-position = Vector2(556, 380)
+position = Vector2(916, 380)
 
 [node name="Icon" type="Sprite2D" parent="IAmAPlayer"]
 scale = Vector2(0.4, 0.4)

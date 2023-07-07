@@ -10,7 +10,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Start to grab the player if in the hand
 	if claw.hand_area.has_overlapping_bodies():
-		fsm.switch_to_state("GrabbingState")
+		fsm.switch_to_state("ClosingState")
 	
 	# Go back to homing state if too far from the target
 	var distance: float = abs(claw.target.position.x - claw.position.x)
