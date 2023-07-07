@@ -1,17 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://cutngrbp08kgw"]
+[gd_scene load_steps=5 format=3 uid="uid://cutngrbp08kgw"]
 
 [ext_resource type="Script" path="res://code/claw/claw_tests.gd" id="1_rw13k"]
 [ext_resource type="PackedScene" uid="uid://cgubjtnwu5enp" path="res://scenes/claw/claw.tscn" id="2_o3o3p"]
 [ext_resource type="Texture2D" uid="uid://b167hqyegprrt" path="res://icon.svg" id="3_dwjmf"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ayj44"]
+radius = 24.3516
+
 [node name="ClawTests" type="Node2D"]
 script = ExtResource("1_rw13k")
 
 [node name="Claw" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_o3o3p")]
+position = Vector2(512, 0)
 target = NodePath("../IAmAPlayer")
 
-[node name="IAmAPlayer" type="Node2D" parent="."]
-position = Vector2(556, 380)
+[node name="IAmAPlayer" type="CharacterBody2D" parent="."]
+position = Vector2(916, 380)
 
 [node name="Icon" type="Sprite2D" parent="IAmAPlayer"]
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("3_dwjmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IAmAPlayer"]
+shape = SubResource("CircleShape2D_ayj44")

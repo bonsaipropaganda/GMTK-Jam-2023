@@ -3,4 +3,8 @@ class_name ClawFSM
 extends FiniteStateMachine
 
 
-@onready var claw: Claw = get_parent()
+var claw: Claw
+
+
+func _ready() -> void:
+	propagate_call(&"set", [&"claw", get_parent()])
