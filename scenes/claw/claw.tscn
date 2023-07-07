@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://cgubjtnwu5enp"]
+
+[ext_resource type="Texture2D" uid="uid://b167hqyegprrt" path="res://icon.svg" id="1_um1yc"]
+[ext_resource type="Script" path="res://code/claw/claw.gd" id="1_xf3ji"]
+[ext_resource type="Script" path="res://code/claw/fsm/claw_fsm.gd" id="3_dlgb5"]
+[ext_resource type="Script" path="res://code/claw/fsm/homing_state.gd" id="4_2ckmf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e168e"]
+size = Vector2(20, 600)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_50fir"]
+size = Vector2(20, 100)
+
+[node name="Claw" type="AnimatableBody2D"]
+script = ExtResource("1_xf3ji")
+
+[node name="Arm" type="CollisionShape2D" parent="."]
+position = Vector2(0, -250)
+shape = SubResource("RectangleShape2D_e168e")
+
+[node name="Sprite" type="Sprite2D" parent="Arm"]
+scale = Vector2(0.155, 4.665)
+texture = ExtResource("1_um1yc")
+
+[node name="Hand" type="AnimatableBody2D" parent="."]
+position = Vector2(0, 60)
+
+[node name="LeftUp" type="CollisionShape2D" parent="Hand"]
+position = Vector2(-35, 30)
+rotation = 0.785398
+shape = SubResource("RectangleShape2D_50fir")
+
+[node name="Sprite" type="Sprite2D" parent="Hand/LeftUp"]
+scale = Vector2(0.155, 1)
+texture = ExtResource("1_um1yc")
+
+[node name="RightUp" type="CollisionShape2D" parent="Hand"]
+position = Vector2(35, 30)
+rotation = -0.785398
+shape = SubResource("RectangleShape2D_50fir")
+
+[node name="Sprite" type="Sprite2D" parent="Hand/RightUp"]
+scale = Vector2(0.155, 1)
+texture = ExtResource("1_um1yc")
+
+[node name="ClawFSM" type="Node" parent="." node_paths=PackedStringArray("current_state")]
+script = ExtResource("3_dlgb5")
+current_state = NodePath("HomingState")
+
+[node name="HomingState" type="Node" parent="ClawFSM"]
+script = ExtResource("4_2ckmf")
