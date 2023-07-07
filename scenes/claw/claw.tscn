@@ -43,9 +43,8 @@ shape = SubResource("RectangleShape2D_50fir")
 scale = Vector2(0.155, 1)
 texture = ExtResource("1_um1yc")
 
-[node name="ClawFSM" type="Node" parent="." node_paths=PackedStringArray("current_state")]
+[node name="ClawFSM" type="Node" parent="."]
 script = ExtResource("3_dlgb5")
-current_state = NodePath("HomingState")
 
 [node name="HomingState" type="Node" parent="ClawFSM"]
 script = ExtResource("4_2ckmf")
