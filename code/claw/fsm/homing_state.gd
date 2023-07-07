@@ -2,10 +2,14 @@ extends ClawState
 
 
 func _physics_process(delta: float) -> void:
-	if not is_instance_valid(claw.target):
+	if not claw.target:
 		return
 	
-	var dir: float = claw.target.position.x - claw.position.x
-	dir = sign(dir)
+	var direction: float = claw.target.position.x - claw.position.x
+	var distance: float = abs(direction)
+	direction = sign(direction)
 	
-	claw.position.x += dir * claw.homing_speed * delta
+	claw.position.x += direction * claw.homing_speed * delta
+	
+	if distance < claw.grab_distance:
+		fsm.switch_to_state("DescendState")
