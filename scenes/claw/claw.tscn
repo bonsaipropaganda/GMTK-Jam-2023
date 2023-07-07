@@ -21,7 +21,34 @@ size = Vector2(20, 40)
 size = Vector2(20, 40)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_88500"]
-radius = 60.0
+radius = 30.0
+
+[sub_resource type="Animation" id="Animation_k8aej"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftHand:rotation")
+tracks/0/interp = 3
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightHand:rotation")
+tracks/1/interp = 3
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_b2ior"]
 resource_name = "close"
@@ -50,57 +77,6 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.0, 0.959931]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("HandArea/CollisionShape2D:shape:radius")
-tracks/2/interp = 0
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [60.0, 30.0]
-}
-
-[sub_resource type="Animation" id="Animation_k8aej"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("LeftHand:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("RightHand:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("HandArea/CollisionShape2D:shape:radius")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [60.0]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mfj81"]
 _data = {
@@ -123,6 +99,7 @@ texture = ExtResource("1_um1yc")
 [node name="LeftHand" type="AnimatableBody2D" parent="."]
 position = Vector2(0, 60)
 collision_layer = 4
+sync_to_physics = false
 
 [node name="UpperPart" type="CollisionShape2D" parent="LeftHand"]
 position = Vector2(-50, 8)
@@ -145,6 +122,7 @@ texture = ExtResource("1_um1yc")
 [node name="RightHand" type="AnimatableBody2D" parent="."]
 position = Vector2(0, 60)
 collision_layer = 4
+sync_to_physics = false
 
 [node name="UpperPart" type="CollisionShape2D" parent="RightHand"]
 position = Vector2(50, 8)
@@ -165,7 +143,7 @@ scale = Vector2(0.155, 0.32)
 texture = ExtResource("1_um1yc")
 
 [node name="HandArea" type="Area2D" parent="."]
-position = Vector2(0, 135)
+position = Vector2(0, 120)
 collision_layer = 0
 monitorable = false
 
