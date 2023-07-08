@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bkrww1b6we3c5"]
+[gd_scene load_steps=12 format=3 uid="uid://bkrww1b6we3c5"]
 
 [ext_resource type="Script" path="res://code/room.gd" id="1_67x5e"]
 [ext_resource type="Texture2D" uid="uid://cyfj1g5sbv535" path="res://Resources/Temp Claw Background.png" id="2_hjjx0"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b5nmge1uoj7tm" path="res://scenes/player/player.tscn" id="5_ij76f"]
 [ext_resource type="Texture2D" uid="uid://mmi13o175h0k" path="res://Resources/[32x32] Dungeon Bricks Plain.png" id="5_qojq7"]
 [ext_resource type="PackedScene" uid="uid://bdn381conbjw6" path="res://scenes/plushies/plushee.tscn" id="6_vndq4"]
+[ext_resource type="PackedScene" uid="uid://btoffwa88b5ko" path="res://scenes/Passing Shadow/passing_shadow_controller.tscn" id="8_8pv6e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fce7i"]
 texture = ExtResource("5_qojq7")
@@ -401,6 +402,8 @@ drop_hole = NodePath("../DropHole")
 
 [node name="DropHole" type="Node2D" parent="."]
 position = Vector2(335, 263)
+
+[node name="PassingShadowController" parent="." instance=ExtResource("8_8pv6e")]
 
 [connection signal="burrowed" from="Player" to="Claw" method="_on_target_burrow_change"]
 [connection signal="target_caught" from="Claw" to="." method="_on_player_caught"]
