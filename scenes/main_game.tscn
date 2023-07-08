@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://7084j2cfattr"]
+
+[ext_resource type="Script" path="res://code/main_game.gd" id="1_clpsd"]
+[ext_resource type="PackedScene" uid="uid://cutngrbp08kgw" path="res://scenes/claw/claw_tests.tscn" id="1_gmpdh"]
+
+[node name="MainGame" type="Node2D"]
+script = ExtResource("1_clpsd")
+
+[node name="ClawTests" parent="." instance=ExtResource("1_gmpdh")]
