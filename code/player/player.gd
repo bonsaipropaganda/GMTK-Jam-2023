@@ -32,5 +32,13 @@ var air: float = 100.0:
 
 
 ## Called when the body is caucht by the claw
-func caught() -> void:
+func claw_caught() -> void:
 	$PlayerFSM.switch_to_state("CaughtState")
+
+
+func claw_release() -> void:
+	$PlayerFSM.switch_to_state("DropHoleFallState")
+
+
+func claw_can_catch() -> bool:
+	return not is_burrowed

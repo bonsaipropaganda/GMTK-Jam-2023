@@ -7,4 +7,8 @@ func _physics_process(delta: float) -> void:
 	# When the claw reaches the top
 	if claw.position.y <= claw.initial_y:
 		claw.position.y = claw.initial_y
-		fsm.switch_to_state("HomingState")
+		
+		if claw.caught_bodies.is_empty():
+			fsm.switch_to_state("HomingState")
+		else:
+			fsm.switch_to_state("GotoDropHoleState")

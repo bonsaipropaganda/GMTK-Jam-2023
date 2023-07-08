@@ -9,7 +9,7 @@ func _physics_process(delta: float) -> void:
 	claw.position.y += y_direction * claw.descending_speed * delta
 	
 	# Start to grab the player if in the hand
-	if not claw.is_target_burrowed and claw.hand_area.has_overlapping_bodies():
+	if claw.hand_area.has_overlapping_bodies():
 		fsm.switch_to_state("ClosingState")
 	
 	# Go back to homing state if too far from the target

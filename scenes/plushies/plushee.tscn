@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdn381conbjw6"]
+
+[ext_resource type="Texture2D" uid="uid://b167hqyegprrt" path="res://icon.svg" id="1_bfx43"]
+[ext_resource type="Script" path="res://code/plushies/plushee.gd" id="1_dlvvp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m51pi"]
+
+[node name="Plushee" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 15
+script = ExtResource("1_dlvvp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_m51pi")
+
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.165, 0.165)
+texture = ExtResource("1_bfx43")
