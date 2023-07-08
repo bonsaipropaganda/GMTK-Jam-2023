@@ -1,24 +1,62 @@
-[gd_scene load_steps=25 format=3 uid="uid://b5nmge1uoj7tm"]
+[gd_scene load_steps=36 format=3 uid="uid://b5nmge1uoj7tm"]
 
 [ext_resource type="Texture2D" uid="uid://ddmx7obrc875l" path="res://Resources/AnimationSheet_Character.png" id="1_eyw0p"]
 [ext_resource type="Script" path="res://code/player/player.gd" id="1_vlwsc"]
+[ext_resource type="Texture2D" uid="uid://py1uhugtocd7" path="res://Resources/1 Pink_Monster/Pink_Monster_Death_8.png" id="2_ni63t"]
 [ext_resource type="Script" path="res://code/player/fsm/player_fsm.gd" id="3_tai1m"]
+[ext_resource type="Texture2D" uid="uid://cft0ll4r64pt5" path="res://Resources/1 Pink_Monster/Pink_Monster_Idle_4.png" id="3_w2i1o"]
 [ext_resource type="Script" path="res://code/player/fsm/above_state.gd" id="4_pahjt"]
 [ext_resource type="Script" path="res://code/player/fsm/below_state.gd" id="5_eufcq"]
 [ext_resource type="Script" path="res://code/player/fsm/caught_state.gd" id="6_5j8be"]
 [ext_resource type="Script" path="res://code/player/fsm/drophole_fall_state.gd" id="7_qs0le"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pwskg"]
-atlas = ExtResource("1_eyw0p")
-region = Rect2(224, 224, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gqp8c"]
-atlas = ExtResource("1_eyw0p")
+[sub_resource type="AtlasTexture" id="AtlasTexture_np57s"]
+atlas = ExtResource("2_ni63t")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cvqda"]
-atlas = ExtResource("1_eyw0p")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ml0x5"]
+atlas = ExtResource("2_ni63t")
 region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5flk"]
+atlas = ExtResource("2_ni63t")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lh2ik"]
+atlas = ExtResource("2_ni63t")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8t4hs"]
+atlas = ExtResource("2_ni63t")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6ugo"]
+atlas = ExtResource("2_ni63t")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jv3su"]
+atlas = ExtResource("2_ni63t")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhebq"]
+atlas = ExtResource("2_ni63t")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ctwu3"]
+atlas = ExtResource("3_w2i1o")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8n1x3"]
+atlas = ExtResource("3_w2i1o")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w44c1"]
+atlas = ExtResource("3_w2i1o")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0k578"]
+atlas = ExtResource("3_w2i1o")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nhgpc"]
 atlas = ExtResource("1_eyw0p")
@@ -56,7 +94,28 @@ region = Rect2(224, 160, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pwskg")
+"texture": SubResource("AtlasTexture_np57s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ml0x5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5flk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lh2ik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8t4hs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n6ugo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jv3su")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhebq")
 }],
 "loop": true,
 "name": &"burrowed",
@@ -64,10 +123,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gqp8c")
+"texture": SubResource("AtlasTexture_ctwu3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cvqda")
+"texture": SubResource("AtlasTexture_8n1x3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w44c1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0k578")
 }],
 "loop": true,
 "name": &"idle",
@@ -126,7 +191,7 @@ script = ExtResource("1_vlwsc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qc5ra")
-animation = &"idle"
+animation = &"burrowed"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
