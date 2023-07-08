@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://btoffwa88b5ko"]
 
 [ext_resource type="Script" path="res://code/PassingShadowController.gd" id="1_sh6qx"]
-[ext_resource type="PackedScene" uid="uid://5vihnnmagp15" path="res://scenes/Passing Shadow/PassingShadow.tscn" id="2_4nepa"]
+[ext_resource type="PackedScene" uid="uid://ca4lptud0gi6v" path="res://scenes/Passing Shadow/pass_warning.tscn" id="2_5xna8"]
 
 [node name="PassingShadowController" type="Node"]
 script = ExtResource("1_sh6qx")
-PassingShadow = ExtResource("2_4nepa")
+PassingShadowWarning = ExtResource("2_5xna8")
 
 [node name="NewShadow" type="Timer" parent="."]
 wait_time = 5.0

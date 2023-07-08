@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b5nmge1uoj7tm"]
+[gd_scene load_steps=25 format=3 uid="uid://b5nmge1uoj7tm"]
 
 [ext_resource type="Texture2D" uid="uid://ddmx7obrc875l" path="res://Resources/AnimationSheet_Character.png" id="1_eyw0p"]
 [ext_resource type="Script" path="res://code/player/player.gd" id="1_vlwsc"]
@@ -116,6 +116,9 @@ bg_color = Color(0.121569, 0.690196, 0.631373, 1)
 ProgressBar/styles/background = SubResource("StyleBoxFlat_4w3vk")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_ci5a3")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8kxhc"]
+size = Vector2(10, 28)
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 15
@@ -127,6 +130,7 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_h0cvc")
 metadata/_edit_group_ = true
@@ -157,3 +161,11 @@ theme = SubResource("Theme_i7bht")
 value = 100.0
 fill_mode = 3
 show_percentage = false
+
+[node name="ShadowDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShadowDetection"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_8kxhc")
+
+[connection signal="area_entered" from="ShadowDetection" to="." method="_on_shadow_detection_area_entered"]

@@ -42,3 +42,7 @@ func claw_release() -> void:
 
 func claw_can_catch() -> bool:
 	return not is_burrowed
+	
+
+func _on_shadow_detection_area_entered(area):
+	print("Hit!")

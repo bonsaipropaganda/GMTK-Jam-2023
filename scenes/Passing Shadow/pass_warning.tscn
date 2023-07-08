@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://ca4lptud0gi6v"]
+
+[ext_resource type="Script" path="res://scenes/PassWarning.gd" id="1_x7o32"]
+[ext_resource type="PackedScene" uid="uid://5vihnnmagp15" path="res://scenes/Passing Shadow/PassingShadow.tscn" id="2_txx1x"]
+[ext_resource type="Texture2D" uid="uid://cnbsellplbwf5" path="res://PassWarning.png" id="2_y48ov"]
+
+[sub_resource type="Theme" id="Theme_shbdh"]
+default_font_size = 80
+
+[node name="PassWarning" type="Node2D"]
+position = Vector2(64, 96)
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_x7o32")
+PassingShadow = ExtResource("2_txx1x")
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = -124.0
+offset_top = -112.0
+offset_right = 508.0
+offset_bottom = 116.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_y48ov")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 48.0
+offset_top = -104.0
+offset_right = 529.0
+offset_bottom = 116.0
+theme = SubResource("Theme_shbdh")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/line_spacing = 0
+text = "INCOMING
+HUMAN!"
+horizontal_alignment = 1
+
+[node name="CreateShadowTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="CreateShadowTimer" to="." method="_on_create_shadow_timer_timeout"]

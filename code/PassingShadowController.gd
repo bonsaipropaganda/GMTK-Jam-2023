@@ -1,6 +1,6 @@
 extends Node
 
-@export var PassingShadow: PackedScene
+@export var PassingShadowWarning: PackedScene
 var rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
@@ -13,15 +13,14 @@ func _process(delta):
 	pass
 
 func _on_new_shadow_timeout():
-	var new_PassingShadow = PassingShadow.instantiate()
+	var new_PassingShadowWarning = PassingShadowWarning.instantiate()
 		
 	match rng.randi_range(0,1):
 		0:
-			new_PassingShadow.walk_direction = "right"
+			new_PassingShadowWarning.walk_direction = "right"
 		1:
-			new_PassingShadow.walk_direction = "left"
-			new_PassingShadow.get_node("Sprite2D").set_flip_h(true)
+			new_PassingShadowWarning.walk_direction = "left"
 		
-	add_child(new_PassingShadow) 
+	add_child(new_PassingShadowWarning) 
 
 
