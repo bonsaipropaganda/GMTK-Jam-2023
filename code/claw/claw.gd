@@ -43,7 +43,7 @@ func _physics_process(delta):
 		homing_speed = set_homing_speed
 		descending_speed = set_descending_speed
 		return
-	
+
 	# Decelerate if we don't see the target
 	if homing_speed > 0:
 		homing_speed -= burrowed_deceleration * delta
@@ -68,10 +68,6 @@ func _closed() -> void:
 	for body in caught_bodies:
 		previous_parents.push_back(body.get_parent())
 		body.reparent(self)
-		
-		if body is RigidBody2D:
-			body.sleeping = true
-			print("sleep")
 		
 		if body.has_method(&"claw_caught"):
 			body.claw_caught()
