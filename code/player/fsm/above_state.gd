@@ -30,7 +30,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if player.air == 100.0 and event.is_action_pressed("key_down") and player.is_on_floor():
+	if player.air > 0 and event.is_action_pressed("key_down") and player.is_on_floor():
 		fsm.switch_to_state("BelowState")
 		get_viewport().set_input_as_handled()
 

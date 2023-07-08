@@ -20,7 +20,7 @@ func _ready() -> void:
 		player.is_burrowed = true
 		player.breath_bar.visible = true
 		player.sprite.animation = "burrowed"
-		player.air = 100.0
+		#player.air = 100.0
 		
 		player.collision_shape.disabled = true
 	)

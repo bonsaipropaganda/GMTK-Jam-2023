@@ -1,12 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://7084j2cfattr"]
+[gd_scene load_steps=5 format=3 uid="uid://7084j2cfattr"]
 
 [ext_resource type="Script" path="res://code/main_game.gd" id="1_clpsd"]
 [ext_resource type="PackedScene" uid="uid://bkrww1b6we3c5" path="res://scenes/room.tscn" id="2_xpgda"]
-[ext_resource type="PackedScene" uid="uid://5vihnnmagp15" path="res://scenes/human.tscn" id="3_isgim"]
+[ext_resource type="PackedScene" uid="uid://5vihnnmagp15" path="res://scenes/Passing Shadow/PassingShadow.tscn" id="3_70aao"]
+[ext_resource type="Script" path="res://scenes/PassingShadowController.gd" id="3_iuh35"]
 
 [node name="MainGame" type="Node2D"]
 script = ExtResource("1_clpsd")
 
 [node name="Room" parent="." instance=ExtResource("2_xpgda")]
 
-[node name="Human" parent="." instance=ExtResource("3_isgim")]
+[node name="PassingShadowController" type="Node" parent="."]
+script = ExtResource("3_iuh35")
+PassingShadow = ExtResource("3_70aao")
+
+[node name="NewShadow" type="Timer" parent="PassingShadowController"]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="PassingShadowController/NewShadow" to="PassingShadowController" method="_on_new_shadow_timeout"]
