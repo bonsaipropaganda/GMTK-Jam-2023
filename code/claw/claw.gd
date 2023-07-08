@@ -1,6 +1,7 @@
 class_name Claw
 extends AnimatableBody2D
 
+const SLOW_DOWN_SPEED = 1
 
 @export var target: Node2D # TOOD: change to player type
 
@@ -19,3 +20,20 @@ extends AnimatableBody2D
 @onready var hand_area: Area2D = $HandArea
 
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
+
+var set_homing_speed: float = homing_speed
+var set_descending_speed: float = descending_speed
+var set_ascending_speed: float= ascending_speed
+
+func _physics_process(delta):
+	if $"../Player".burrowed:
+		if (homing_speed != 0):
+			homing_speed -= SLOW_DOWN_SPEED
+		if (descending_speed != 0):
+			descending_speed -= SLOW_DOWN_SPEED
+		if (ascending_speed != 0):
+			ascending_speed -= SLOW_DOWN_SPEED
+	else:
+		homing_speed = set_homing_speed
+		descending_speed = set_descending_speed
+		ascending_speed = set_ascending_speed

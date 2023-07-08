@@ -1,159 +1,10 @@
-[gd_scene load_steps=30 format=3 uid="uid://cutngrbp08kgw"]
+[gd_scene load_steps=8 format=3 uid="uid://cutngrbp08kgw"]
 
 [ext_resource type="Script" path="res://code/claw/claw_tests.gd" id="1_rw13k"]
 [ext_resource type="PackedScene" uid="uid://cgubjtnwu5enp" path="res://scenes/claw/claw.tscn" id="2_o3o3p"]
 [ext_resource type="Texture2D" uid="uid://cyfj1g5sbv535" path="res://Resources/Temp Claw Background.png" id="4_kfkvu"]
-[ext_resource type="Script" path="res://scenes/claw/Player.gd" id="5_7aois"]
-[ext_resource type="Texture2D" uid="uid://ddmx7obrc875l" path="res://Resources/AnimationSheet_Character.png" id="6_bpc21"]
-[ext_resource type="Script" path="res://code/fsm/finite_state_machine.gd" id="6_y5jan"]
+[ext_resource type="PackedScene" uid="uid://b5nmge1uoj7tm" path="res://player.tscn" id="5_roedp"]
 [ext_resource type="Texture2D" uid="uid://mmi13o175h0k" path="res://Resources/[32x32] Dungeon Bricks Plain.png" id="7_vfsrx"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gqp8c"]
-atlas = ExtResource("6_bpc21")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cvqda"]
-atlas = ExtResource("6_bpc21")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nhgpc"]
-atlas = ExtResource("6_bpc21")
-region = Rect2(0, 160, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d4c8j"]
-atlas = ExtResource("6_bpc21")
-region = Rect2(32, 160, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_br6u0"]
-atlas = ExtResource("6_bpc21")
-region = Rect2(64, 160, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vx80q"]
-atlas = ExtResource("6_bpc21")
-region = Rect2(96, 160, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k26ae"]
-atlas = ExtResource("6_bpc21")
-region = Rect2(128, 160, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l7guw"]
-atlas = ExtResource("6_bpc21")
-region = Rect2(160, 160, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ufq7e"]
-atlas = ExtResource("6_bpc21")
-region = Rect2(192, 160, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_no12p"]
-atlas = ExtResource("6_bpc21")
-region = Rect2(224, 160, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f260d"]
-atlas = ExtResource("6_bpc21")
-region = Rect2(0, 96, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bqmo6"]
-atlas = ExtResource("6_bpc21")
-region = Rect2(32, 96, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2li4n"]
-atlas = ExtResource("6_bpc21")
-region = Rect2(64, 96, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vkaoe"]
-atlas = ExtResource("6_bpc21")
-region = Rect2(96, 96, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ybu7c"]
-atlas = ExtResource("6_bpc21")
-region = Rect2(128, 96, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4548r"]
-atlas = ExtResource("6_bpc21")
-region = Rect2(160, 96, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wqo0l"]
-atlas = ExtResource("6_bpc21")
-region = Rect2(192, 96, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ax5hw"]
-atlas = ExtResource("6_bpc21")
-region = Rect2(224, 96, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_qc5ra"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gqp8c")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cvqda")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 2.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nhgpc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d4c8j")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_br6u0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vx80q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k26ae")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l7guw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ufq7e")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_no12p")
-}],
-"loop": true,
-"name": &"jumping",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f260d")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bqmo6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2li4n")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vkaoe")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ybu7c")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4548r")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wqo0l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ax5hw")
-}],
-"loop": true,
-"name": &"running",
-"speed": 12.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h0cvc"]
-size = Vector2(16, 28)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fce7i"]
 texture = ExtResource("7_vfsrx")
@@ -341,24 +192,8 @@ texture = ExtResource("4_kfkvu")
 centered = false
 
 [node name="Claw" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_o3o3p")]
+position = Vector2(294, -5)
 target = NodePath("../Player")
-
-[node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(102, 152)
-script = ExtResource("5_7aois")
-metadata/_edit_group_ = true
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
-sprite_frames = SubResource("SpriteFrames_qc5ra")
-animation = &"idle"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(-1, 1)
-shape = SubResource("RectangleShape2D_h0cvc")
-metadata/_edit_group_ = true
-
-[node name="PlayerFSM" type="Node" parent="Player"]
-script = ExtResource("6_y5jan")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_o4mwo")
@@ -368,3 +203,6 @@ layer_0/tile_data = PackedInt32Array(589824, 65536, 1, 589825, 65536, 1, 589826,
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(320, 180)
 zoom = Vector2(3, 3)
+
+[node name="Player" parent="." instance=ExtResource("5_roedp")]
+position = Vector2(81, 196)

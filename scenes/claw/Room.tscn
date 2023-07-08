@@ -185,7 +185,7 @@ layer_0/tile_data = PackedInt32Array(262139, 65536, 1, 262140, 65536, 1, 262138,
 [node name="ClawTests" parent="." instance=ExtResource("6_dotnf")]
 position = Vector2(-301, -220)
 
-[node name="Claw" parent="ClawTests" index="0" node_paths=PackedStringArray("target")]
+[node name="Claw" parent="ClawTests" index="1" node_paths=PackedStringArray("target")]
 position = Vector2(479, -1)
 target = NodePath("../../Player")
 
