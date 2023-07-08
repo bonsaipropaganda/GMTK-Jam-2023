@@ -11,8 +11,8 @@ extends AnimatableBody2D
 @export var descending_speed: float = 250.0
 ## The speed at wich the claw goes back up
 @export var ascending_speed: float = 200.0
-## The horizontal distance at wich the claw tries to grab
-@export var grab_distance: float = 45.0
+## The horizontal distance at which the claw tries to grab
+@export var grab_distance: float = 20
 
 
 ## If the player is inside this area, close the hand

@@ -1,84 +1,83 @@
-[gd_scene load_steps=27 format=3 uid="uid://bkrww1b6we3c5"]
+[gd_scene load_steps=25 format=3 uid="uid://b5nmge1uoj7tm"]
 
-[ext_resource type="Texture2D" uid="uid://cyfj1g5sbv535" path="res://Resources/Temp Claw Background.png" id="1_5op1o"]
-[ext_resource type="Script" path="res://scenes/claw/Room.gd" id="1_ybih6"]
-[ext_resource type="Texture2D" uid="uid://ddmx7obrc875l" path="res://Resources/AnimationSheet_Character.png" id="2_pe2w3"]
-[ext_resource type="Script" path="res://scenes/claw/Player.gd" id="2_qcwcb"]
-[ext_resource type="PackedScene" uid="uid://cutngrbp08kgw" path="res://scenes/claw/claw_tests.tscn" id="6_dotnf"]
+[ext_resource type="Script" path="res://scenes/claw/Player.gd" id="1_4bfpb"]
+[ext_resource type="Texture2D" uid="uid://ddmx7obrc875l" path="res://Resources/AnimationSheet_Character.png" id="2_pk3n6"]
+[ext_resource type="Script" path="res://code/fsm/finite_state_machine.gd" id="3_2h4ts"]
+[ext_resource type="Script" path="res://code/fsm/state.gd" id="4_x2fib"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gqp8c"]
-atlas = ExtResource("2_pe2w3")
+atlas = ExtResource("2_pk3n6")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvqda"]
-atlas = ExtResource("2_pe2w3")
+atlas = ExtResource("2_pk3n6")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nhgpc"]
-atlas = ExtResource("2_pe2w3")
+atlas = ExtResource("2_pk3n6")
 region = Rect2(0, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d4c8j"]
-atlas = ExtResource("2_pe2w3")
+atlas = ExtResource("2_pk3n6")
 region = Rect2(32, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_br6u0"]
-atlas = ExtResource("2_pe2w3")
+atlas = ExtResource("2_pk3n6")
 region = Rect2(64, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vx80q"]
-atlas = ExtResource("2_pe2w3")
+atlas = ExtResource("2_pk3n6")
 region = Rect2(96, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k26ae"]
-atlas = ExtResource("2_pe2w3")
+atlas = ExtResource("2_pk3n6")
 region = Rect2(128, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l7guw"]
-atlas = ExtResource("2_pe2w3")
+atlas = ExtResource("2_pk3n6")
 region = Rect2(160, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ufq7e"]
-atlas = ExtResource("2_pe2w3")
+atlas = ExtResource("2_pk3n6")
 region = Rect2(192, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_no12p"]
-atlas = ExtResource("2_pe2w3")
+atlas = ExtResource("2_pk3n6")
 region = Rect2(224, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f260d"]
-atlas = ExtResource("2_pe2w3")
+atlas = ExtResource("2_pk3n6")
 region = Rect2(0, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bqmo6"]
-atlas = ExtResource("2_pe2w3")
+atlas = ExtResource("2_pk3n6")
 region = Rect2(32, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2li4n"]
-atlas = ExtResource("2_pe2w3")
+atlas = ExtResource("2_pk3n6")
 region = Rect2(64, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vkaoe"]
-atlas = ExtResource("2_pe2w3")
+atlas = ExtResource("2_pk3n6")
 region = Rect2(96, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ybu7c"]
-atlas = ExtResource("2_pe2w3")
+atlas = ExtResource("2_pk3n6")
 region = Rect2(128, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4548r"]
-atlas = ExtResource("2_pe2w3")
+atlas = ExtResource("2_pk3n6")
 region = Rect2(160, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wqo0l"]
-atlas = ExtResource("2_pe2w3")
+atlas = ExtResource("2_pk3n6")
 region = Rect2(192, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ax5hw"]
-atlas = ExtResource("2_pe2w3")
+atlas = ExtResource("2_pk3n6")
 region = Rect2(224, 96, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_afw1h"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_qc5ra"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -150,43 +149,28 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5jwc0"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h0cvc"]
+size = Vector2(16, 28)
 
-[sub_resource type="TileSet" id="TileSet_c8t4q"]
-tile_size = Vector2i(32, 32)
-physics_layer_0/collision_layer = 1
-
-[node name="Room" type="Node2D"]
-position = Vector2(301, 224)
-script = ExtResource("1_ybih6")
-
-[node name="TempClawBackground" type="Sprite2D" parent="."]
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("1_5op1o")
-
-[node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(-146, 74)
-script = ExtResource("2_qcwcb")
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(102, 152)
+script = ExtResource("1_4bfpb")
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
-sprite_frames = SubResource("SpriteFrames_afw1h")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qc5ra")
 animation = &"idle"
-frame_progress = 0.642883
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource("RectangleShape2D_5jwc0")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_h0cvc")
+metadata/_edit_group_ = true
 
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_c8t4q")
-format = 2
-layer_0/tile_data = PackedInt32Array(262139, 65536, 1, 262140, 65536, 1, 262138, 65536, 1, 262137, 65536, 1, 262141, 65536, 1, 262142, 65536, 1, 262143, 65536, 1, 196608, 65536, 1, 196609, 65536, 1, 196610, 65536, 1, 196611, 65536, 1, 196612, 65536, 1, 196613, 65536, 1, 196614, 65536, 1, 196615, 65536, 1, 262136, 65536, 1, 196616, 65536, 1, 262135, 65536, 1, 262134, 65536, 1)
+[node name="PlayerFSM" type="Node" parent="."]
+script = ExtResource("3_2h4ts")
 
-[node name="ClawTests" parent="." instance=ExtResource("6_dotnf")]
-position = Vector2(-301, -220)
+[node name="AboveGround" type="Node" parent="PlayerFSM"]
+script = ExtResource("4_x2fib")
 
-[node name="Claw" parent="ClawTests" index="0" node_paths=PackedStringArray("target")]
-position = Vector2(479, -1)
-target = NodePath("../../Player")
-
-[editable path="ClawTests"]
+[node name="BelowGround" type="Node" parent="PlayerFSM"]
+script = ExtResource("4_x2fib")
