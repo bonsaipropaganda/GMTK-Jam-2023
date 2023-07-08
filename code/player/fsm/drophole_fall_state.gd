@@ -11,6 +11,7 @@ func _physics_process(delta: float) -> void:
 
 func _ready() -> void:
 	state_entered.connect(func(_from: State):
-		player.set_collision_layer_value(4, false)
+		player.set_collision_mask_value(4, false) # Disable collision with drop hole
+		player.z_index = -1
 		player.sprite.animation = "idle"
 	)

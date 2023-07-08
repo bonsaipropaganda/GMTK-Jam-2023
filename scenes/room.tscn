@@ -350,6 +350,7 @@ position = Vector2(320, 180)
 zoom = Vector2(3, 3)
 
 [node name="TempClawBackground" type="Sprite2D" parent="."]
+z_index = -2
 texture = ExtResource("2_hjjx0")
 centered = false
 
@@ -361,9 +362,13 @@ layer_0/tile_data = PackedInt32Array(589824, 65536, 1, 589825, 65536, 1, 589826,
 [node name="Player" parent="." instance=ExtResource("5_ij76f")]
 position = Vector2(196, 220)
 
-[node name="Claw" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_e0aw4")]
+[node name="Claw" parent="." node_paths=PackedStringArray("target", "drop_hole") instance=ExtResource("4_e0aw4")]
 position = Vector2(329, 75)
 target = NodePath("../Player")
+drop_hole = NodePath("../DropHole")
+
+[node name="DropHole" type="Node2D" parent="."]
+position = Vector2(335, 263)
 
 [connection signal="burrowed" from="Player" to="Claw" method="_on_target_burrow_change"]
 [connection signal="target_caught" from="Claw" to="." method="_on_player_caught"]

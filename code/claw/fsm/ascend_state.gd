@@ -11,4 +11,4 @@ func _physics_process(delta: float) -> void:
 		if claw.caught_bodies.is_empty():
 			fsm.switch_to_state("HomingState")
 		else:
-			fsm.switch_to_state("DroppingState")
+			fsm.switch_to_state("GotoDropHoleState")
