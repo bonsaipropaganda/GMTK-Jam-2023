@@ -12,3 +12,7 @@ func claw_release() -> void:
 	set_collision_mask_value(4, false) # Disable collision with drop hole
 	z_index = -1
 	linear_velocity = Vector2.ZERO
+
+
+#func _on_body_entered(body: Node2D) -> void:
+#	if body.get_collision
