@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6gqdnawtipd7"]
+
+[ext_resource type="PackedScene" uid="uid://bkrww1b6we3c5" path="res://scenes/room.tscn" id="1_ogt85"]
+[ext_resource type="PackedScene" uid="uid://bdn381conbjw6" path="res://scenes/plushies/plushee.tscn" id="2_1lr4m"]
+
+[node name="PlusheeTest" type="Node2D"]
+
+[node name="Room" parent="." instance=ExtResource("1_ogt85")]
+
+[node name="Plushee" parent="." instance=ExtResource("2_1lr4m")]
+position = Vector2(95, 243)
+
+[node name="Plushee2" parent="." instance=ExtResource("2_1lr4m")]
+position = Vector2(63, 214)
+
+[node name="Plushee3" parent="." instance=ExtResource("2_1lr4m")]
+position = Vector2(118, 200)
+
+[node name="Plushee4" parent="." instance=ExtResource("2_1lr4m")]
+position = Vector2(507, 247)
+
+[node name="Plushee5" parent="." instance=ExtResource("2_1lr4m")]
+position = Vector2(472, 238)
+
+[node name="Plushee6" parent="." instance=ExtResource("2_1lr4m")]
+position = Vector2(548, 261)
+
+[node name="Plushee7" parent="." instance=ExtResource("2_1lr4m")]
+position = Vector2(472, 262)
+
+[node name="Plushee8" parent="." instance=ExtResource("2_1lr4m")]
+position = Vector2(575, 243)
+
+[node name="Plushee9" parent="." instance=ExtResource("2_1lr4m")]
+position = Vector2(545, 235)

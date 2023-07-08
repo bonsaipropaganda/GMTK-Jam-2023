@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cgubjtnwu5enp"]
+[gd_scene load_steps=19 format=3 uid="uid://cgubjtnwu5enp"]
 
 [ext_resource type="Texture2D" uid="uid://b167hqyegprrt" path="res://icon.svg" id="1_um1yc"]
 [ext_resource type="Script" path="res://code/claw/claw.gd" id="1_xf3ji"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" path="res://code/claw/fsm/descend_state.gd" id="5_kb0bm"]
 [ext_resource type="Script" path="res://code/claw/fsm/ascend_state.gd" id="6_m2jcv"]
 [ext_resource type="Script" path="res://code/claw/fsm/closing_state.gd" id="7_1oteu"]
+[ext_resource type="Script" path="res://code/claw/fsm/goto_drophole_state.gd" id="8_1mu6r"]
+[ext_resource type="Script" path="res://code/claw/fsm/dropping_state.gd" id="9_402ap"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e168e"]
 size = Vector2(20, 600)
@@ -92,10 +94,39 @@ tracks/2/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_8d54h"]
+resource_name = "open"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftHand:rotation")
+tracks/0/interp = 3
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [5.32325, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightHand:rotation")
+tracks/1/interp = 3
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.959931, 0.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mfj81"]
 _data = {
 "RESET": SubResource("Animation_k8aej"),
-"close": SubResource("Animation_b2ior")
+"close": SubResource("Animation_b2ior"),
+"open": SubResource("Animation_8d54h")
 }
 
 [node name="Claw" type="AnimatableBody2D"]
@@ -114,6 +145,7 @@ texture = ExtResource("1_um1yc")
 [node name="LeftHand" type="AnimatableBody2D" parent="."]
 position = Vector2(0, -80)
 collision_layer = 4
+collision_mask = 2
 sync_to_physics = false
 
 [node name="UpperPart" type="CollisionShape2D" parent="LeftHand"]
@@ -159,6 +191,7 @@ texture = ExtResource("1_um1yc")
 
 [node name="HandArea" type="Area2D" parent="."]
 collision_layer = 0
+collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HandArea"]
@@ -184,3 +217,9 @@ script = ExtResource("6_m2jcv")
 
 [node name="ClosingState" type="Node" parent="ClawFSM"]
 script = ExtResource("7_1oteu")
+
+[node name="GotoDropHoleState" type="Node" parent="ClawFSM"]
+script = ExtResource("8_1mu6r")
+
+[node name="DroppingState" type="Node" parent="ClawFSM"]
+script = ExtResource("9_402ap")
