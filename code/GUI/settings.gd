@@ -7,8 +7,6 @@ extends CanvasLayer
 
 
 func _ready() -> void:
-	get_tree().paused = true
-	
 	_set_slider_volume(%MasterVolume, master_bus)
 	_set_slider_volume(%MusicVolume , music_bus)
 	_set_slider_volume(%SfxVolume   , sfx_bus)
@@ -36,5 +34,4 @@ func _on_sfx_volume_changed(_value: float) -> void:
 
 
 func _on_back_pressed() -> void:
-	get_tree().paused = false
 	queue_free()
