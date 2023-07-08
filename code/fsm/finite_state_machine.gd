@@ -5,14 +5,16 @@ extends Node
 
 @export var current_state: State:
 	set(state):
-		if not Engine.is_editor_hint():
-			# Change state status
-			if is_instance_valid(current_state):
-				current_state._exit(state)
-			state._enter(current_state)
-		
+		var previous_state: State = current_state
 		current_state = state
 		update_configuration_warnings()
+
+		if not Engine.is_editor_hint():
+			# Change state status
+
+			if is_instance_valid(previous_state):
+				previous_state._exit(state)
+			state._enter(current_state)
 
 
 func switch_to_state(state_name: String) -> void:
