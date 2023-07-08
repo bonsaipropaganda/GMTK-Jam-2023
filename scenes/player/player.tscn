@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b5nmge1uoj7tm"]
+[gd_scene load_steps=24 format=3 uid="uid://b5nmge1uoj7tm"]
 
 [ext_resource type="Texture2D" uid="uid://ddmx7obrc875l" path="res://Resources/AnimationSheet_Character.png" id="1_eyw0p"]
 [ext_resource type="Script" path="res://code/player/player.gd" id="1_vlwsc"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://code/player/fsm/above_state.gd" id="4_pahjt"]
 [ext_resource type="Script" path="res://code/player/fsm/below_state.gd" id="5_eufcq"]
 [ext_resource type="Script" path="res://code/player/fsm/caught_state.gd" id="6_5j8be"]
+[ext_resource type="Script" path="res://code/player/fsm/drophole_fall_state.gd" id="7_qs0le"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pwskg"]
 atlas = ExtResource("1_eyw0p")
@@ -116,13 +117,13 @@ ProgressBar/styles/background = SubResource("StyleBoxFlat_4w3vk")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_ci5a3")
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(102, 152)
-collision_mask = 5
+collision_layer = 2
+collision_mask = 15
 script = ExtResource("1_vlwsc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qc5ra")
-animation = &"burrowed"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -142,6 +143,9 @@ script = ExtResource("5_eufcq")
 
 [node name="CaughtState" type="Node" parent="PlayerFSM"]
 script = ExtResource("6_5j8be")
+
+[node name="DropHoleFallState" type="Node" parent="PlayerFSM"]
+script = ExtResource("7_qs0le")
 
 [node name="breath_bar" type="ProgressBar" parent="."]
 visible = false
