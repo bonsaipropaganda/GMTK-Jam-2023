@@ -4,9 +4,13 @@ extends CharacterBody2D
 signal burrowed(state: bool)
 
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+@export var speed: float = 300.0
+@export var jump_velocity = -400.0
 
+@export var jump_buffer: float = 0.1
+@export var coyote_time: float = 0.085
+
+@export_group("Burrow")
 @export var air_expire_speed: float = 50.0
 @export var air_recover_speed: float = 25.0
 
