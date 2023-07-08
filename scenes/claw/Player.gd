@@ -12,6 +12,8 @@ var burrowed = false;
 func _physics_process(delta):
 	
 	if !burrowed:
+		$breath_bar.value = 100
+		$breath_bar.visible = false
 		# Add the gravity.
 		if not is_on_floor():
 			velocity.y += gravity * delta
@@ -29,3 +31,6 @@ func _physics_process(delta):
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 
 		move_and_slide()
+	else: #if burrowed
+		$breath_bar.visible = true
+		$breath_bar.value -= 0.5
