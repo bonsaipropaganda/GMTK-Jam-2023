@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bkrww1b6we3c5"]
+[gd_scene load_steps=11 format=3 uid="uid://bkrww1b6we3c5"]
 
 [ext_resource type="Script" path="res://code/room.gd" id="1_67x5e"]
 [ext_resource type="Texture2D" uid="uid://cyfj1g5sbv535" path="res://Resources/Temp Claw Background.png" id="2_hjjx0"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://b5nmge1uoj7tm" path="res://scenes/player/player.tscn" id="5_ij76f"]
 [ext_resource type="Texture2D" uid="uid://mmi13o175h0k" path="res://Resources/[32x32] Dungeon Bricks Plain.png" id="5_qojq7"]
 [ext_resource type="PackedScene" uid="uid://bdn381conbjw6" path="res://scenes/plushies/plushee.tscn" id="6_vndq4"]
-[ext_resource type="PackedScene" uid="uid://btoffwa88b5ko" path="res://scenes/Passing Shadow/passing_shadow_controller.tscn" id="8_60axo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fce7i"]
 texture = ExtResource("5_qojq7")
@@ -300,25 +299,27 @@ texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8.625, 16, -8.875, -3.25, -11.875, -3.5, -11.875, -11, -6.625, -11.5, -6.125, 16)
 0:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_1/angular_velocity = 0.0
-0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-12.625, -13, 16, -12.75, 16, 16, -8.875, 16, -8.625, -3.25, -12.625, -3.5)
+0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-12.4444, -12.4444, 16, -12.4444, 16, 16, -8.875, 16, -8.625, -3.25, -12.625, -3.5)
 1:0/0 = 0
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_0/angular_velocity = 0.0
 1:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_1/angular_velocity = 0.0
-1:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-16, -13, 16, -12.75, 16, 16, -16, 16)
+1:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-16, -12.4444, 16, -12.4444, 16, 16, -16, 16)
 2:0/0 = 0
 2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8.625, 16, 8.875, -3.25, 11.875, -3.5, 11.875, -11, 6.625, -11.5, 6.125, 16)
 2:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 2:0/0/physics_layer_1/angular_velocity = 0.0
-2:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-16, -13, 13.125, -12.75, 13.375, -3.5, 8.625, -4, 9.125, 16, -16, 16)
+2:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-16, -12.4444, 12.4444, -12.4444, 13.375, -3.5, 8.625, -4, 9.125, 16, -16, 16)
 0:1/0 = 0
 0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:1/0/physics_layer_0/angular_velocity = 0.0
-0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -7.875, -16, -8.125, 16, -16, 16)
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -6.125, -16, -6.125, 16, -16, 16)
 0:1/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 0:1/0/physics_layer_1/angular_velocity = 0.0
 0:1/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8.625, -16, 16, -16, 16, 16, -8.875, 16)
@@ -331,7 +332,7 @@ texture_region_size = Vector2i(32, 32)
 2:1/0 = 0
 2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:1/0/physics_layer_0/angular_velocity = 0.0
-2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(7.375, -16, 16, -16, 16, 16, 8.375, 16)
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -16, 6.125, -16, 6.125, 16, 16, 16)
 2:1/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 2:1/0/physics_layer_1/angular_velocity = 0.0
 2:1/0/physics_layer_1/polygon_0/points = PackedVector2Array(-16, -16, 8.375, -16, 8.625, 16, -16, 16)
@@ -400,8 +401,6 @@ drop_hole = NodePath("../DropHole")
 
 [node name="DropHole" type="Node2D" parent="."]
 position = Vector2(335, 263)
-
-[node name="PassingShadowController" parent="." instance=ExtResource("8_60axo")]
 
 [connection signal="burrowed" from="Player" to="Claw" method="_on_target_burrow_change"]
 [connection signal="target_caught" from="Claw" to="." method="_on_player_caught"]
