@@ -29,3 +29,7 @@ func _exit(to: State) -> void:
 func _set_enabled(enable: bool) -> void:
 	set_process(enable)
 	set_physics_process(enable)
+	set_process_input(enable)
+	set_process_unhandled_input(enable)
+	set_process_unhandled_key_input(enable)
+	set_process_shortcut_input(enable)
