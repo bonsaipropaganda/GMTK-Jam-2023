@@ -1,6 +1,9 @@
 class_name Claw
 extends AnimatableBody2D
 
+## Signal sent when the target has been caught, used for game over
+signal target_caught()
+
 @export var target: Node2D # TOOD: change to player type
 
 
@@ -29,7 +32,7 @@ var set_ascending_speed: float = ascending_speed
 var is_target_burrowed: bool = false
 
 var caught_bodies: Array[Node2D] = []
-var target_caught: bool = false
+var is_target_caught: bool = false
 
 
 func _physics_process(delta):
@@ -67,8 +70,9 @@ func _closed() -> void:
 			body.caught()
 	
 	if target in caught_bodies:
-		target_caught = true
+		is_target_caught = true
 		target = null
+		target_caught.emit()
 	
 	# Reopen if empty
 	if caught_bodies.is_empty():
