@@ -27,6 +27,7 @@ var air: float = 100.0:
 
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var breath_bar: ProgressBar = $breath_bar
 
 
