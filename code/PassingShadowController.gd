@@ -20,6 +20,7 @@ func _on_new_shadow_timeout():
 			new_PassingShadow.walk_direction = "right"
 		1:
 			new_PassingShadow.walk_direction = "left"
+			new_PassingShadow.get_node("Sprite2D").set_flip_h(true)
 		
 	add_child(new_PassingShadow) 
 
