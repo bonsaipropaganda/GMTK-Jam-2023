@@ -25,6 +25,8 @@ signal target_caught()
 
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 
+@onready var initial_y: float = position.y
+
 var set_homing_speed: float = homing_speed
 var set_descending_speed: float = descending_speed
 var set_ascending_speed: float = ascending_speed

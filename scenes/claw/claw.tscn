@@ -104,7 +104,7 @@ collision_layer = 4
 script = ExtResource("1_xf3ji")
 
 [node name="Arm" type="CollisionShape2D" parent="."]
-position = Vector2(0, -250)
+position = Vector2(0, -390)
 shape = SubResource("RectangleShape2D_e168e")
 
 [node name="Sprite" type="Sprite2D" parent="Arm"]
@@ -112,7 +112,7 @@ scale = Vector2(0.155, 4.665)
 texture = ExtResource("1_um1yc")
 
 [node name="LeftHand" type="AnimatableBody2D" parent="."]
-position = Vector2(0, 60)
+position = Vector2(0, -80)
 collision_layer = 4
 sync_to_physics = false
 
@@ -135,7 +135,7 @@ scale = Vector2(0.155, 0.32)
 texture = ExtResource("1_um1yc")
 
 [node name="RightHand" type="AnimatableBody2D" parent="."]
-position = Vector2(0, 60)
+position = Vector2(0, -80)
 collision_layer = 4
 sync_to_physics = false
 
@@ -158,7 +158,6 @@ scale = Vector2(0.155, 0.32)
 texture = ExtResource("1_um1yc")
 
 [node name="HandArea" type="Area2D" parent="."]
-position = Vector2(0, 140)
 collision_layer = 0
 monitorable = false
 

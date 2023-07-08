@@ -204,7 +204,7 @@ layer_0/tile_data = PackedInt32Array(589824, 65536, 1, 589825, 65536, 1, 589826,
 position = Vector2(81, 196)
 
 [node name="Claw" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_e0aw4")]
-position = Vector2(325, 0)
+position = Vector2(329, 75)
 target = NodePath("../Player")
 
 [connection signal="burrowed" from="Player" to="Claw" method="_on_target_burrow_change"]
