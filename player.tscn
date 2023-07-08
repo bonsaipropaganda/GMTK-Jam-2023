@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b5nmge1uoj7tm"]
+[gd_scene load_steps=22 format=3 uid="uid://b5nmge1uoj7tm"]
 
 [ext_resource type="Script" path="res://scenes/claw/Player.gd" id="1_4bfpb"]
 [ext_resource type="Texture2D" uid="uid://ddmx7obrc875l" path="res://Resources/AnimationSheet_Character.png" id="2_pk3n6"]
@@ -104,10 +104,19 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h0cvc"]
 size = Vector2(16, 28)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4w3vk"]
+bg_color = Color(0.72549, 0, 0.207843, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ci5a3"]
+bg_color = Color(0.121569, 0.690196, 0.631373, 1)
+
+[sub_resource type="Theme" id="Theme_i7bht"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_4w3vk")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_ci5a3")
+
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(102, 152)
 script = ExtResource("1_4bfpb")
-metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qc5ra")
@@ -128,3 +137,14 @@ script = ExtResource("4_7haew")
 
 [node name="below_state" type="Node" parent="player_fsm"]
 script = ExtResource("5_2fu07")
+
+[node name="breath_bar" type="ProgressBar" parent="."]
+visible = false
+offset_left = 18.0
+offset_top = -21.0
+offset_right = 22.0
+offset_bottom = 6.0
+theme = SubResource("Theme_i7bht")
+value = 100.0
+fill_mode = 3
+show_percentage = false
