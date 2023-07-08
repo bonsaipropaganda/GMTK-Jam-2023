@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://code/claw/claw_tests.gd" id="1_rw13k"]
 [ext_resource type="PackedScene" uid="uid://cgubjtnwu5enp" path="res://scenes/claw/claw.tscn" id="2_o3o3p"]
 [ext_resource type="Texture2D" uid="uid://cyfj1g5sbv535" path="res://Resources/Temp Claw Background.png" id="4_kfkvu"]
-[ext_resource type="PackedScene" uid="uid://b5nmge1uoj7tm" path="res://player.tscn" id="5_roedp"]
+[ext_resource type="PackedScene" uid="uid://b5nmge1uoj7tm" path="res://scenes/player/player.tscn" id="5_roedp"]
 [ext_resource type="Texture2D" uid="uid://mmi13o175h0k" path="res://Resources/[32x32] Dungeon Bricks Plain.png" id="7_vfsrx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fce7i"]
