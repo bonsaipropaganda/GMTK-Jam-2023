@@ -10,6 +10,7 @@ func claw_release() -> void:
 	freeze = false
 	$CollisionShape2D.disabled = false
 	set_collision_mask_value(4, false) # Disable collision with drop hole
+	# TOFIX ? : if it does not enter the pipe it is not reset, for now it does not give rise to any issue
 	z_index = -1
 	linear_velocity = Vector2.ZERO
 
