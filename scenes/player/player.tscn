@@ -1,10 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://b5nmge1uoj7tm"]
+[gd_scene load_steps=23 format=3 uid="uid://b5nmge1uoj7tm"]
 
 [ext_resource type="Texture2D" uid="uid://ddmx7obrc875l" path="res://Resources/AnimationSheet_Character.png" id="1_eyw0p"]
 [ext_resource type="Script" path="res://code/player/player.gd" id="1_vlwsc"]
 [ext_resource type="Script" path="res://code/player/fsm/player_fsm.gd" id="3_tai1m"]
 [ext_resource type="Script" path="res://code/player/fsm/above_state.gd" id="4_pahjt"]
 [ext_resource type="Script" path="res://code/player/fsm/below_state.gd" id="5_eufcq"]
+[ext_resource type="Script" path="res://code/player/fsm/caught_state.gd" id="6_5j8be"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pwskg"]
 atlas = ExtResource("1_eyw0p")
@@ -116,6 +117,7 @@ ProgressBar/styles/fill = SubResource("StyleBoxFlat_ci5a3")
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(102, 152)
+collision_mask = 5
 script = ExtResource("1_vlwsc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -128,15 +130,18 @@ position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_h0cvc")
 metadata/_edit_group_ = true
 
-[node name="player_fsm" type="Node" parent="." node_paths=PackedStringArray("current_state")]
+[node name="PlayerFSM" type="Node" parent="." node_paths=PackedStringArray("current_state")]
 script = ExtResource("3_tai1m")
-current_state = NodePath("above_state")
+current_state = NodePath("AboveState")
 
-[node name="above_state" type="Node" parent="player_fsm"]
+[node name="AboveState" type="Node" parent="PlayerFSM"]
 script = ExtResource("4_pahjt")
 
-[node name="below_state" type="Node" parent="player_fsm"]
+[node name="BelowState" type="Node" parent="PlayerFSM"]
 script = ExtResource("5_eufcq")
+
+[node name="CaughtState" type="Node" parent="PlayerFSM"]
+script = ExtResource("6_5j8be")
 
 [node name="breath_bar" type="ProgressBar" parent="."]
 visible = false

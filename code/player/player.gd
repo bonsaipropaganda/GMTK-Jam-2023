@@ -1,36 +1,32 @@
 class_name Player
 extends CharacterBody2D
 
+signal burrowed(state: bool)
+
+
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-var burrowed = false;
 
-func _physics_process(delta):
-	
-	if !burrowed:
-		$breath_bar.value = 100
-		$breath_bar.visible = false
-		# Add the gravity.
-		if not is_on_floor():
-			velocity.y += gravity * delta
+var is_burrowed = false:
+	set(value):
+		is_burrowed = value
+		burrowed.emit(value)
+		$breath_bar.visible = value
 
-		# Handle Jump.
-		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-			velocity.y = JUMP_VELOCITY
 
-		# Get the input direction and handle the movement/deceleration.
-		# As good practice, you should replace UI actions with custom gameplay actions.
-		var direction = Input.get_axis("key_left", "key_right")
-		if direction:
-			velocity.x = direction * SPEED
-		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
+var breath: float = 100.0:
+	set(value):
+		breath = value
+		$breath_bar.value = value
 
-		move_and_slide()
-	else: #if burrowed
-		$breath_bar.visible = true
-		$breath_bar.value -= 0.5
+
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+
+
+## Called when the body is caucht by the claw
+func caught() -> void:
+	$PlayerFSM.switch_to_state("CaughtState")
