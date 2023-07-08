@@ -1,53 +1,53 @@
 [gd_scene load_steps=22 format=3 uid="uid://b5nmge1uoj7tm"]
 
-[ext_resource type="Script" path="res://scenes/claw/Player.gd" id="1_4bfpb"]
-[ext_resource type="Texture2D" uid="uid://ddmx7obrc875l" path="res://Resources/AnimationSheet_Character.png" id="2_pk3n6"]
-[ext_resource type="Script" path="res://player_fsm.gd" id="3_mkcdt"]
-[ext_resource type="Script" path="res://above_state.gd" id="4_7haew"]
-[ext_resource type="Script" path="res://below_state.gd" id="5_2fu07"]
+[ext_resource type="Texture2D" uid="uid://ddmx7obrc875l" path="res://Resources/AnimationSheet_Character.png" id="1_eyw0p"]
+[ext_resource type="Script" path="res://code/player/player.gd" id="1_vlwsc"]
+[ext_resource type="Script" path="res://code/player/fsm/player_fsm.gd" id="3_tai1m"]
+[ext_resource type="Script" path="res://code/player/fsm/above_state.gd" id="4_pahjt"]
+[ext_resource type="Script" path="res://code/player/fsm/below_state.gd" id="5_eufcq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pwskg"]
-atlas = ExtResource("2_pk3n6")
+atlas = ExtResource("1_eyw0p")
 region = Rect2(224, 224, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gqp8c"]
-atlas = ExtResource("2_pk3n6")
+atlas = ExtResource("1_eyw0p")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvqda"]
-atlas = ExtResource("2_pk3n6")
+atlas = ExtResource("1_eyw0p")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nhgpc"]
-atlas = ExtResource("2_pk3n6")
+atlas = ExtResource("1_eyw0p")
 region = Rect2(0, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d4c8j"]
-atlas = ExtResource("2_pk3n6")
+atlas = ExtResource("1_eyw0p")
 region = Rect2(32, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_br6u0"]
-atlas = ExtResource("2_pk3n6")
+atlas = ExtResource("1_eyw0p")
 region = Rect2(64, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vx80q"]
-atlas = ExtResource("2_pk3n6")
+atlas = ExtResource("1_eyw0p")
 region = Rect2(96, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k26ae"]
-atlas = ExtResource("2_pk3n6")
+atlas = ExtResource("1_eyw0p")
 region = Rect2(128, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l7guw"]
-atlas = ExtResource("2_pk3n6")
+atlas = ExtResource("1_eyw0p")
 region = Rect2(160, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ufq7e"]
-atlas = ExtResource("2_pk3n6")
+atlas = ExtResource("1_eyw0p")
 region = Rect2(192, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_no12p"]
-atlas = ExtResource("2_pk3n6")
+atlas = ExtResource("1_eyw0p")
 region = Rect2(224, 160, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qc5ra"]
@@ -116,7 +116,7 @@ ProgressBar/styles/fill = SubResource("StyleBoxFlat_ci5a3")
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(102, 152)
-script = ExtResource("1_4bfpb")
+script = ExtResource("1_vlwsc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qc5ra")
@@ -129,14 +129,14 @@ shape = SubResource("RectangleShape2D_h0cvc")
 metadata/_edit_group_ = true
 
 [node name="player_fsm" type="Node" parent="." node_paths=PackedStringArray("current_state")]
-script = ExtResource("3_mkcdt")
+script = ExtResource("3_tai1m")
 current_state = NodePath("above_state")
 
 [node name="above_state" type="Node" parent="player_fsm"]
-script = ExtResource("4_7haew")
+script = ExtResource("4_pahjt")
 
 [node name="below_state" type="Node" parent="player_fsm"]
-script = ExtResource("5_2fu07")
+script = ExtResource("5_eufcq")
 
 [node name="breath_bar" type="ProgressBar" parent="."]
 visible = false

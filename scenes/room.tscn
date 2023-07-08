@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkrww1b6we3c5"]
+
+[ext_resource type="Script" path="res://code/room.gd" id="1_67x5e"]
+[ext_resource type="Texture2D" uid="uid://cyfj1g5sbv535" path="res://Resources/Temp Claw Background.png" id="2_hjjx0"]
+[ext_resource type="PackedScene" uid="uid://cutngrbp08kgw" path="res://scenes/claw/claw_tests.tscn" id="5_jlee2"]
+
+[sub_resource type="TileSet" id="TileSet_c8t4q"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+
+[node name="Room" type="Node2D"]
+position = Vector2(301, 224)
+script = ExtResource("1_67x5e")
+
+[node name="TempClawBackground" type="Sprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_hjjx0")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_c8t4q")
+format = 2
+layer_0/tile_data = PackedInt32Array(262139, 65536, 1, 262140, 65536, 1, 262138, 65536, 1, 262137, 65536, 1, 262141, 65536, 1, 262142, 65536, 1, 262143, 65536, 1, 196608, 65536, 1, 196609, 65536, 1, 196610, 65536, 1, 196611, 65536, 1, 196612, 65536, 1, 196613, 65536, 1, 196614, 65536, 1, 196615, 65536, 1, 262136, 65536, 1, 196616, 65536, 1, 262135, 65536, 1, 262134, 65536, 1)
+
+[node name="ClawTests" parent="." instance=ExtResource("5_jlee2")]
+position = Vector2(-301, -220)
+
+[node name="Claw" parent="ClawTests" index="1"]
+position = Vector2(479, -1)
+
+[editable path="ClawTests"]
