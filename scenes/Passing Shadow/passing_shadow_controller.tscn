@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://btoffwa88b5ko"]
+
+[ext_resource type="Script" path="res://scenes/PassingShadowController.gd" id="1_sh6qx"]
+[ext_resource type="PackedScene" uid="uid://5vihnnmagp15" path="res://scenes/Passing Shadow/PassingShadow.tscn" id="2_4nepa"]
+
+[node name="PassingShadowController" type="Node"]
+script = ExtResource("1_sh6qx")
+PassingShadow = ExtResource("2_4nepa")
+
+[node name="NewShadow" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="NewShadow" to="." method="_on_new_shadow_timeout"]
