@@ -2,7 +2,11 @@ extends PlayerState
 
 
 func _physics_process(delta: float) -> void:
-	player.breath -= 50.0 * delta
+	player.air -= 50.0 * delta
+	
+	if player.air <= 0.5:
+		player.air = 0.0
+		fsm.switch_to_state("AboveState")
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -14,7 +18,8 @@ func _unhandled_input(event: InputEvent) -> void:
 func _ready() -> void:
 	state_entered.connect(func(_from: State):
 		player.is_burrowed = true
+		player.breath_bar.visible = true
 		player.sprite.animation = "burrowed"
-		player.breath = 100.0
+		player.air = 100.0
 	)
 	state_exited.connect(func(_to: State): player.is_burrowed = false)

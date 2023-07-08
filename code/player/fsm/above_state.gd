@@ -2,6 +2,14 @@ extends PlayerState
 
 
 func _physics_process(delta: float) -> void:
+	# Recover breath
+	if player.air < 100.0:
+		player.air += player.air_recover_speed * delta
+		
+		if player.air >= 99.5:
+			player.air = 100.0
+			player.breath_bar.visible = false
+	
 	# Add the gravity.
 	if not player.is_on_floor():
 		player.velocity.y += player.gravity * delta
@@ -22,7 +30,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("key_down") and player.is_on_floor():
+	if player.air == 100.0 and event.is_action_pressed("key_down") and player.is_on_floor():
 		fsm.switch_to_state("BelowState")
 		get_viewport().set_input_as_handled()
 
