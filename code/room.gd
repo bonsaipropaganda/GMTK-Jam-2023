@@ -1,12 +1,9 @@
 extends Node2D
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+var GameOverScreen: PackedScene = preload("res://scenes/GUI/game_over.tscn")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
-
+func _on_player_caught() -> void:
+	var game_over := GameOverScreen.instantiate()
+	add_child(game_over)

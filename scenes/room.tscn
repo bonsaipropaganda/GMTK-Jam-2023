@@ -208,3 +208,4 @@ position = Vector2(325, 0)
 target = NodePath("../Player")
 
 [connection signal="burrowed" from="Player" to="Claw" method="_on_target_burrow_change"]
+[connection signal="target_caught" from="Claw" to="." method="_on_player_caught"]
