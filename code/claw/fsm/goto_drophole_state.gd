@@ -9,7 +9,7 @@ func _physics_process(delta: float) -> void:
 	var distance: float = abs(direction)
 	direction = sign(direction)
 	
-	claw.position.x += direction * claw.homing_speed * delta
+	claw.position.x += direction * claw.set_homing_speed * delta
 	
 	if distance < 10.0:
 		fsm.switch_to_state("DroppingState")
