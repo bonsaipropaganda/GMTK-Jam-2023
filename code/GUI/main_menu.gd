@@ -1,7 +1,7 @@
 extends Control
 
 
-var SettingsMenu: PackedScene = preload("res://scenes/GUI/settings.tscn")
+const SettingsMenu: PackedScene = preload("res://scenes/GUI/settings.tscn")
 
 @export var main_game_scene: PackedScene
 
