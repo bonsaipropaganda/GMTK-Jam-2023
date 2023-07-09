@@ -5,6 +5,8 @@ const SettingsMenu: PackedScene = preload("res://scenes/GUI/settings.tscn")
 
 @export var main_game_scene: PackedScene
 
+func _ready():
+	$Start.main_game_scene = main_game_scene
 
 func _on_start_button_pressed():
 	get_tree().change_scene_to_packed(main_game_scene)
