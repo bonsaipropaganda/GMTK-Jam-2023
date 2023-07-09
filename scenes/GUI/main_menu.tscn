@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://code/GUI/main_menu.gd" id="1_nejb3"]
 [ext_resource type="PackedScene" uid="uid://7084j2cfattr" path="res://scenes/main_game.tscn" id="2_5dagu"]
 [ext_resource type="Texture2D" uid="uid://dgdwyxkemd4kd" path="res://Resources/exit.png" id="4_m8h64"]
-[ext_resource type="AudioStream" uid="uid://crr0l2bcikxku" path="res://Resources/MainMenuMusic.wav" id="5_toblr"]
 [ext_resource type="Texture2D" uid="uid://b8r3ysqpkfpgr" path="res://Resources/MainMenuBackground.png" id="6_kxasg"]
 [ext_resource type="Texture2D" uid="uid://cfvf7f2v2gm0q" path="res://Resources/StartButton.png" id="7_53j2p"]
 [ext_resource type="Script" path="res://scenes/GUI/Start.gd" id="8_fsswg"]
+[ext_resource type="AudioStream" uid="uid://c16phdw7320rr" path="res://Resources/music/MainMenuMusic.ogg" id="8_hpi30"]
 [ext_resource type="Texture2D" uid="uid://nlj4l4160f2p" path="res://Resources/Cloud.png" id="9_lhftw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a52gf"]
@@ -97,7 +97,7 @@ icon = ExtResource("4_m8h64")
 
 [node name="MainMenuMusic" type="AudioStreamPlayer" parent="."]
 process_mode = 3
-stream = ExtResource("5_toblr")
+stream = ExtResource("8_hpi30")
 volume_db = -8.0
 autoplay = true
 bus = &"Music"
