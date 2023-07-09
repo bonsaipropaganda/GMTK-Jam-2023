@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://7084j2cfattr"]
+[gd_scene load_steps=6 format=3 uid="uid://7084j2cfattr"]
 
 [ext_resource type="Script" path="res://code/main_game.gd" id="1_clpsd"]
 [ext_resource type="PackedScene" uid="uid://b70j0ik3trn31" path="res://scenes/rooms/room_1.tscn" id="2_kbrns"]
 [ext_resource type="AudioStream" uid="uid://bciwe1k85h3f7" path="res://Resources/MainGameplay.wav" id="3_8wj12"]
 [ext_resource type="PackedScene" uid="uid://c6msqwkqldv8y" path="res://scenes/GUI/time_left_label.tscn" id="4_kelpe"]
+[ext_resource type="FontFile" uid="uid://c6s4u0k31pcnn" path="res://Resources/Fonts/Kenney Future Narrow.ttf" id="5_syh5k"]
 
 [node name="MainGame" type="Node2D"]
 script = ExtResource("1_clpsd")
@@ -20,13 +21,15 @@ offset_left = 38.0
 offset_top = 38.0
 offset_right = 78.0
 offset_bottom = 64.0
+theme_override_fonts/font = ExtResource("5_syh5k")
 text = "Time left: 30"
 
 [node name="LevelLabel" type="Label" parent="."]
-offset_left = 545.0
+offset_left = 536.0
 offset_top = 34.0
-offset_right = 599.0
+offset_right = 604.0
 offset_bottom = 60.0
+theme_override_fonts/font = ExtResource("5_syh5k")
 text = "Level 1"
 
 [connection signal="new_room_instanced" from="." to="." method="_on_new_room_instanced"]
