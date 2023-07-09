@@ -11,12 +11,7 @@ var rng = RandomNumberGenerator.new()
 func _ready():
 	$NewShadow.wait_time = new_shadow_timer
 	$NewShadow.start()
-	
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
 
 func _on_new_shadow_timeout():
 	if PassingShadowWarning:
