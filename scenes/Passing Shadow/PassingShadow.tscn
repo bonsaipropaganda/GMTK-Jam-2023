@@ -60,6 +60,9 @@ _data = {
 [node name="PassingShadow" type="Area2D"]
 position = Vector2(-177, 264)
 scale = Vector2(0.4, 0.4)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
 script = ExtResource("1_ihw7k")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -73,3 +76,5 @@ libraries = {
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-372.5, 45, -362.5, 80, -310, 92.5, -260, 42.5, -222.5, -125, -132.5, -182.5, -262.5, 312.5, -435, 550, -240, 545, -57.5, 180, 112.5, 337.5, 175, 572.5, 332.5, 567.5, 277.5, 280, 52.5, 65, 110, -145, 172.5, -52.5, 385, 52.5, 427.5, 12.5, 357.5, -47.5, 215, -137.5, 102.5, -355, 20, -382.5, -140, -305, -302.5, -182.5)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

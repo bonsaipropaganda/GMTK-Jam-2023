@@ -1,5 +1,9 @@
 extends Node
 
+
+signal player_caught()
+
+
 @export var PassingShadowWarning: PackedScene
 # controls the speed of the shadow scene passing by
 @export var shadow_speed: float
@@ -9,8 +13,9 @@ var rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$NewShadow.wait_time = new_shadow_timer
-	$NewShadow.start()
+	if new_shadow_timer > 0.0:
+		$NewShadow.wait_time = new_shadow_timer
+		$NewShadow.start()
 
 
 func _on_new_shadow_timeout():

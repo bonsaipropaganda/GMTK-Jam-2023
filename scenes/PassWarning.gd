@@ -1,5 +1,6 @@
 extends Node2D
 
+
 var walk_direction: String = "right"
 
 @export var warning_length: float = 3.0
@@ -31,6 +32,7 @@ func _ready():
 
 func _on_create_shadow_timer_timeout():
 	var new_PassingShadow = PassingShadow.instantiate()
+	new_PassingShadow.player_caught.connect(get_parent().emit_signal.bind(&"player_caught"), CONNECT_ONE_SHOT)
 
 	new_PassingShadow.walk_direction = walk_direction
 	
