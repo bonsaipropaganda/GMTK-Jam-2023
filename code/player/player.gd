@@ -50,7 +50,9 @@ func claw_can_catch() -> bool:
 
 func _on_shadow_detection_area_entered(area):
 	print("Hit!")
-	$PlayerFSM.switch_to_state("CaughtState")
+	# only get caught if you are burrowed
+	if is_burrowed == false:
+		$PlayerFSM.switch_to_state("CaughtState")
 
 
 func _on_animated_sprite_2d_animation_looped():
