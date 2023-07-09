@@ -34,4 +34,5 @@ text = "Level 1"
 
 [connection signal="game_ending" from="." to="." method="_on_game_ending"]
 [connection signal="new_room_instanced" from="." to="." method="_on_new_room_instanced"]
+[connection signal="game_over_signal" from="Room_1" to="." method="_on_game_over"]
 [connection signal="level_passed" from="TimeLeftLabel" to="." method="_on_level_passed"]

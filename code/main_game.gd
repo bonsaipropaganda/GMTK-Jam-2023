@@ -21,22 +21,25 @@ func _input(event):
 
 
 
-
 func _on_level_passed():
 	if current_room == 1:
 		$Room_1.queue_free()
+		room_2.connect("game_over_signal", _on_game_over)
 		add_child(room_2)
 		new_room_instanced.emit()
 	elif current_room == 2:
 		$Room_2.queue_free()
+		room_3.connect("game_over_signal", _on_game_over)
 		add_child(room_3)
 		new_room_instanced.emit()
 	elif current_room == 3:
 		$Room_3.queue_free()
+		room_4.connect("game_over_signal", _on_game_over)
 		add_child(room_4)
 		new_room_instanced.emit()
 	elif current_room == 4:
 		$Room_4.queue_free()
+		room_5.connect("game_over_signal", _on_game_over)
 		add_child(room_5)
 		new_room_instanced.emit()
 	elif current_room == 5:
@@ -56,3 +59,7 @@ func _on_game_ending():
 	$LevelLabel.hide()
 	await get_tree().create_timer(10).timeout
 	get_tree().change_scene_to_file("res://scenes/GUI/main_menu.tscn")
+
+
+func _on_game_over():
+	$TimeLeftLabel.reset()
