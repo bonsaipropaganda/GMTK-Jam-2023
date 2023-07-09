@@ -82,5 +82,5 @@ descending_speed = 150.0
 shadow_speed = 0.7
 new_shadow_timer = 12
 
-[node name="TimeLeftLabel" parent="HUD" index="1"]
-time_left = 5
+[node name="LevelLabel" parent="HUD" index="0"]
+text = "Level 2"

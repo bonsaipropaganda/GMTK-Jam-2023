@@ -10,6 +10,7 @@ const LevelTransition: PackedScene = preload("res://scenes/GUI/level_transition.
 var current_level: int = 1
 ## Paths to all levels
 const LEVELS: Array[PackedScene] = [
+	preload("res://scenes/GUI/opening_screen.tscn"),
 	preload("res://scenes/rooms/room_1.tscn"),
 	preload("res://scenes/rooms/room_2.tscn"),
 	preload("res://scenes/rooms/room_3.tscn"),
@@ -38,7 +39,6 @@ func load_level(index: int) -> void:
 	if level_scene is Level:
 		level_scene.game_over.connect(_on_game_over, CONNECT_ONE_SHOT)
 		level_scene.game_won.connect(_on_game_won, CONNECT_ONE_SHOT)
-		level_scene.set_level_number(index)
 	$Level.add_child(level_scene)
 	
 
