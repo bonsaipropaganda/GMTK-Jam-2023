@@ -45,3 +45,4 @@ func _on_level_passed():
 
 func _on_new_room_instanced():
 	current_room += 1
+	$LevelLabel.text = "Level " + str(current_room)

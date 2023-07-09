@@ -20,7 +20,14 @@ offset_left = 38.0
 offset_top = 38.0
 offset_right = 78.0
 offset_bottom = 64.0
-text = ""
+text = "Time left: 30"
+
+[node name="LevelLabel" type="Label" parent="."]
+offset_left = 545.0
+offset_top = 34.0
+offset_right = 599.0
+offset_bottom = 60.0
+text = "Level 1"
 
 [connection signal="new_room_instanced" from="." to="." method="_on_new_room_instanced"]
 [connection signal="level_passed" from="TimeLeftLabel" to="." method="_on_level_passed"]
