@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxuywb8wt5p6o"]
+
+[ext_resource type="PackedScene" uid="uid://bkrww1b6we3c5" path="res://scenes/room.tscn" id="1_sxe35"]
+
+[node name="Room_2" instance=ExtResource("1_sxe35")]
+
+[node name="Claw" parent="." index="5"]
+homing_speed = 100.0
+descending_speed = 150.0

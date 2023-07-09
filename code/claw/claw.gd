@@ -28,8 +28,8 @@ signal target_caught()
 
 @onready var initial_y: float = position.y
 
-var set_homing_speed: float = homing_speed
-var set_descending_speed: float = descending_speed
+@onready var set_homing_speed: float = homing_speed
+@onready var set_descending_speed: float = descending_speed
 
 var is_target_burrowed: bool = false
 
