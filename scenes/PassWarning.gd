@@ -28,7 +28,6 @@ func _ready():
 
 
 func _on_create_shadow_timer_timeout():
-	print("banana")
 	var new_PassingShadow = PassingShadow.instantiate()
 
 	new_PassingShadow.walk_direction = walk_direction

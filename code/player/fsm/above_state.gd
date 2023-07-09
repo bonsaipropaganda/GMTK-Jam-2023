@@ -62,5 +62,4 @@ func _ready() -> void:
 	state_entered.connect(func(_from: State):
 		player.sprite.animation = "out_of_burrow"
 		player.sprite.play()
-		print("entered abovestate")
 	)
