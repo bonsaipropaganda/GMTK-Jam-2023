@@ -21,8 +21,6 @@ func _ready():
 	$CreateShadowTimer.start()
 	set_modulate(Color(1,1,1,0))
 	
-	var tween = get_tree().create_tween()
-	tween.set_loops(blink_rate)
 	tween.tween_property(self, "modulate", Color(1, 1, 1, 1) , tween_rate) #Fade In
 	tween.tween_property(self, "modulate", Color(1, 1, 1, 0) , tween_rate) #Fade Out
 
