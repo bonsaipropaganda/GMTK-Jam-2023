@@ -7,7 +7,6 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "Time Left: 30 s"
 script = ExtResource("1_7neex")
-time_left = 5
 
 [node name="LevelTimer" type="Timer" parent="."]
 autostart = true
