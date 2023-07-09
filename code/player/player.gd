@@ -50,3 +50,14 @@ func claw_can_catch() -> bool:
 
 func _on_shadow_detection_area_entered(area):
 	print("Hit!")
+	$PlayerFSM.switch_to_state("CaughtState")
+
+
+func _on_animated_sprite_2d_animation_looped():
+	match $AnimatedSprite2D.animation:
+		"into_burrow":
+			$AnimatedSprite2D.animation = "burrowed"
+		"out_of_burrow":
+			$AnimatedSprite2D.animation = "idle"
+		"jumping_start":
+			$AnimatedSprite2D.animation = "jumping"

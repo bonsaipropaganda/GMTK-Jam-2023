@@ -19,7 +19,8 @@ func _ready() -> void:
 	state_entered.connect(func(_from: State):
 		player.is_burrowed = true
 		player.breath_bar.visible = true
-		player.sprite.animation = "burrowed"
+		player.sprite.animation = "into_burrow"
+		print("entered belowstate")
 		#player.air = 100.0
 		
 		player.collision_shape.disabled = true

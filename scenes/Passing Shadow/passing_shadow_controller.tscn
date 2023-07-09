@@ -9,6 +9,5 @@ PassingShadowWarning = ExtResource("2_5xna8")
 
 [node name="NewShadow" type="Timer" parent="."]
 wait_time = 5.0
-autostart = true
 
 [connection signal="timeout" from="NewShadow" to="." method="_on_new_shadow_timeout"]

@@ -1,10 +1,45 @@
-[gd_scene load_steps=6 format=3 uid="uid://b2xc4746qduib"]
+[gd_scene load_steps=14 format=3 uid="uid://b2xc4746qduib"]
 
 [ext_resource type="Script" path="res://code/GUI/main_menu.gd" id="1_nejb3"]
 [ext_resource type="PackedScene" uid="uid://7084j2cfattr" path="res://scenes/main_game.tscn" id="2_5dagu"]
 [ext_resource type="Texture2D" uid="uid://cjb6jexhcir0y" path="res://Resources/playbuttonpdn.png" id="3_hak6g"]
 [ext_resource type="Texture2D" uid="uid://dgdwyxkemd4kd" path="res://Resources/exit.png" id="4_m8h64"]
-[ext_resource type="AudioStream" uid="uid://bnipd8mxuuw72" path="res://Resources/Placeholder free music.ogg" id="5_opjyj"]
+[ext_resource type="AudioStream" uid="uid://crr0l2bcikxku" path="res://Resources/MainMenuMusic.wav" id="5_toblr"]
+[ext_resource type="Texture2D" uid="uid://b8r3ysqpkfpgr" path="res://Resources/MainMenuBackground.png" id="6_kxasg"]
+[ext_resource type="Texture2D" uid="uid://cfvf7f2v2gm0q" path="res://Resources/StartButton.png" id="7_53j2p"]
+[ext_resource type="Script" path="res://scenes/GUI/Start.gd" id="8_fsswg"]
+[ext_resource type="Texture2D" uid="uid://nlj4l4160f2p" path="res://Resources/Cloud.png" id="9_lhftw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a52gf"]
+atlas = ExtResource("7_53j2p")
+region = Rect2(0, 0, 384, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfvem"]
+atlas = ExtResource("7_53j2p")
+region = Rect2(0, 108, 384, 108)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_88inw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a52gf")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xfvem")
+}],
+"loop": true,
+"name": &"unpressed",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s6xr0"]
+radius = 23.7223
+height = 121.61
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -12,6 +47,35 @@ anchors_preset = 0
 scale = Vector2(4, 4)
 script = ExtResource("1_nejb3")
 main_game_scene = ExtResource("2_5dagu")
+
+[node name="MainMenuBackground" type="Sprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("6_kxasg")
+centered = false
+
+[node name="CloudSprite" type="Sprite2D" parent="."]
+texture_filter = 2
+position = Vector2(240.25, 144.75)
+scale = Vector2(0.283529, 0.292824)
+texture = ExtResource("9_lhftw")
+
+[node name="Start" type="AnimatedSprite2D" parent="."]
+texture_filter = 2
+position = Vector2(240, 150)
+scale = Vector2(0.567057, 0.585648)
+sprite_frames = SubResource("SpriteFrames_88inw")
+animation = &"unpressed"
+autoplay = "unpressed"
+frame_progress = 0.727303
+script = ExtResource("8_fsswg")
+
+[node name="Area2D" type="Area2D" parent="Start"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Start/Area2D"]
+position = Vector2(-1.10217, -8.96442)
+rotation = 1.5708
+scale = Vector2(1.76349, 1.70751)
+shape = SubResource("CapsuleShape2D_s6xr0")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_direction = 2
@@ -37,10 +101,12 @@ icon = ExtResource("4_m8h64")
 
 [node name="MainMenuMusic" type="AudioStreamPlayer" parent="."]
 process_mode = 3
-stream = ExtResource("5_opjyj")
+stream = ExtResource("5_toblr")
 autoplay = true
 bus = &"Music"
 
+[connection signal="mouse_entered" from="Start/Area2D" to="Start" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Start/Area2D" to="Start" method="_on_area_2d_mouse_exited"]
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/SettingsButtion" to="." method="_on_settings_buttion_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
