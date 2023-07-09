@@ -1,8 +1,86 @@
-[gd_scene load_steps=2 format=3 uid="uid://nasim76ujexa"]
+[gd_scene load_steps=3 format=3 uid="uid://nasim76ujexa"]
 
 [ext_resource type="PackedScene" uid="uid://bkrww1b6we3c5" path="res://scenes/room.tscn" id="1_d4lib"]
+[ext_resource type="PackedScene" uid="uid://bdn381conbjw6" path="res://scenes/plushies/plushee.tscn" id="2_qo4td"]
 
 [node name="Room_5" instance=ExtResource("1_d4lib")]
+
+[node name="Plushee" parent="Plushies" index="0" instance=ExtResource("2_qo4td")]
+position = Vector2(254, 318)
+
+[node name="Plushee2" parent="Plushies" index="1" instance=ExtResource("2_qo4td")]
+position = Vector2(254, 298)
+
+[node name="Plushee3" parent="Plushies" index="2" instance=ExtResource("2_qo4td")]
+position = Vector2(231, 318)
+
+[node name="Plushee4" parent="Plushies" index="3" instance=ExtResource("2_qo4td")]
+position = Vector2(400, 318)
+
+[node name="Plushee5" parent="Plushies" index="4" instance=ExtResource("2_qo4td")]
+position = Vector2(388, 298)
+rotation = -0.254919
+
+[node name="Plushee6" parent="Plushies" index="5" instance=ExtResource("2_qo4td")]
+position = Vector2(233, 298)
+
+[node name="Plushee7" parent="Plushies" index="6" instance=ExtResource("2_qo4td")]
+position = Vector2(208, 318)
+
+[node name="Plushee8" parent="Plushies" index="7" instance=ExtResource("2_qo4td")]
+position = Vector2(597, 318)
+
+[node name="Plushee9" parent="Plushies" index="8" instance=ExtResource("2_qo4td")]
+position = Vector2(599, 297)
+
+[node name="Plushee10" parent="Plushies" index="9" instance=ExtResource("2_qo4td")]
+position = Vector2(588, 277)
+rotation = -0.160438
+
+[node name="Plushee11" parent="Plushies" index="10" instance=ExtResource("2_qo4td")]
+position = Vector2(565, 318)
+
+[node name="Plushee12" parent="Plushies" index="11" instance=ExtResource("2_qo4td")]
+position = Vector2(576, 297)
+rotation = 0.319507
+
+[node name="Plushee13" parent="Plushies" index="12" instance=ExtResource("2_qo4td")]
+position = Vector2(482, 318)
+
+[node name="Plushee14" parent="Plushies" index="13" instance=ExtResource("2_qo4td")]
+position = Vector2(515, 318)
+
+[node name="Plushee15" parent="Plushies" index="14" instance=ExtResource("2_qo4td")]
+position = Vector2(499, 300)
+rotation = -0.700929
+
+[node name="Plushee16" parent="Plushies" index="15" instance=ExtResource("2_qo4td")]
+position = Vector2(63, 318)
+rotation = 1.5696
+
+[node name="Plushee17" parent="Plushies" index="16" instance=ExtResource("2_qo4td")]
+position = Vector2(54, 297)
+
+[node name="Plushee18" parent="Plushies" index="17" instance=ExtResource("2_qo4td")]
+position = Vector2(242, 277)
+
+[node name="Plushee19" parent="Plushies" index="18" instance=ExtResource("2_qo4td")]
+position = Vector2(159, 318)
+
+[node name="Plushee20" parent="Plushies" index="19" instance=ExtResource("2_qo4td")]
+position = Vector2(183, 314)
+rotation = 0.55494
+
+[node name="Plushee21" parent="Plushies" index="20" instance=ExtResource("2_qo4td")]
+position = Vector2(199, 296)
+rotation = 0.18344
+
+[node name="Plushee22" parent="Plushies" index="21" instance=ExtResource("2_qo4td")]
+position = Vector2(40, 277)
+rotation = -0.150053
+
+[node name="Plushee23" parent="Plushies" index="22" instance=ExtResource("2_qo4td")]
+position = Vector2(40, 318)
 
 [node name="PassingShadowController" parent="." index="7"]
 shadow_speed = 1.0
