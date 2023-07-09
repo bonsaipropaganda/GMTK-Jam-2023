@@ -335,9 +335,11 @@ shape = SubResource("RectangleShape2D_8kxhc")
 
 [node name="Jump" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_ob3k8")
+bus = &"Sfx"
 
 [node name="Burrowing" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_cbeed")
+bus = &"Sfx"
 
 [connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
 [connection signal="area_entered" from="ShadowDetection" to="." method="_on_shadow_detection_area_entered"]
