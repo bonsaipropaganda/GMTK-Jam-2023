@@ -52,12 +52,6 @@ scale = Vector2(0.75, 0.75)
 texture = ExtResource("6_kxasg")
 centered = false
 
-[node name="CloudSprite" type="Sprite2D" parent="."]
-texture_filter = 2
-position = Vector2(240.25, 144.75)
-scale = Vector2(0.283529, 0.292824)
-texture = ExtResource("9_lhftw")
-
 [node name="Start" type="AnimatedSprite2D" parent="."]
 texture_filter = 2
 position = Vector2(240, 150)
@@ -75,6 +69,13 @@ position = Vector2(-1.10217, -8.96442)
 rotation = 1.5708
 scale = Vector2(1.76349, 1.70751)
 shape = SubResource("CapsuleShape2D_s6xr0")
+
+[node name="CloudSprite" type="Sprite2D" parent="Start"]
+show_behind_parent = true
+texture_filter = 2
+position = Vector2(0.440857, -8.96442)
+scale = Vector2(0.500001, 0.5)
+texture = ExtResource("9_lhftw")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_direction = 2
@@ -101,6 +102,7 @@ volume_db = -8.0
 autoplay = true
 bus = &"Music"
 
+[connection signal="pressed" from="Start" to="." method="_on_start_button_pressed"]
 [connection signal="mouse_entered" from="Start/Area2D" to="Start" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Start/Area2D" to="Start" method="_on_area_2d_mouse_exited"]
 [connection signal="pressed" from="VBoxContainer/SettingsButtion" to="." method="_on_settings_buttion_pressed"]

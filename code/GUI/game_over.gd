@@ -1,8 +1,11 @@
 extends CanvasLayer
 
+signal try_again_button_pressed()
+
 
 func _on_try_again_pressed() -> void:
-	get_tree().reload_current_scene()
+	try_again_button_pressed.emit()
+	queue_free()
 
 
 func _on_main_menu_pressed() -> void:
