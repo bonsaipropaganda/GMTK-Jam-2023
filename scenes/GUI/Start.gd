@@ -8,7 +8,7 @@ func _ready():
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "position", Vector2(240,160), 1).set_trans(Tween.TRANS_SINE)
 	tween.tween_property(self, "position", Vector2(240,150), 1).set_trans(Tween.TRANS_SINE)
-	tween.set_loops()
+	tween.set_loops(50)
 
 
 func _on_area_2d_mouse_entered():
