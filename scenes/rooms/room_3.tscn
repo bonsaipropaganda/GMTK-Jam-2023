@@ -88,3 +88,6 @@ descending_speed = 200.0
 [node name="PassingShadowController" parent="." index="7"]
 shadow_speed = 0.7
 new_shadow_timer = 10
+
+[node name="LevelLabel" parent="HUD" index="0"]
+text = "Level 3"

@@ -85,3 +85,6 @@ position = Vector2(40, 318)
 [node name="PassingShadowController" parent="." index="7"]
 shadow_speed = 1.0
 new_shadow_timer = 5
+
+[node name="LevelLabel" parent="HUD" index="0"]
+text = "Level 5"

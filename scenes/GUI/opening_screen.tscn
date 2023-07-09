@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://3uqbgr2o8epl"]
+[gd_scene load_steps=4 format=3 uid="uid://3uqbgr2o8epl"]
 
+[ext_resource type="Script" path="res://code/GUI/opening_screen.gd" id="1_l7pn6"]
 [ext_resource type="Texture2D" uid="uid://b8r3ysqpkfpgr" path="res://Resources/MainMenuBackground.png" id="1_ugc5b"]
 [ext_resource type="FontFile" uid="uid://c6s4u0k31pcnn" path="res://Resources/Fonts/Kenney Future Narrow.ttf" id="2_mlk17"]
 
-[node name="EndScreen" type="Node2D"]
+[node name="OpeningScreen" type="Node2D"]
+script = ExtResource("1_l7pn6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.576471)
@@ -25,3 +27,13 @@ theme_override_font_sizes/font_size = 64
 text = "Uh oh! Our hero, Mr. Plushie Plush has found himself in a predicament! He's in a claw arcade game! You know the ones where people get free toys and stuff. Yep. Help our hero survive! If he can make it to day 5 he'll be able to escape!"
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="Ok" type="Button" parent="."]
+offset_left = 1731.0
+offset_top = 922.0
+offset_right = 1784.0
+offset_bottom = 975.0
+theme_override_font_sizes/font_size = 32
+text = "OK"
+
+[connection signal="pressed" from="Ok" to="." method="_on_ok_pressed"]
