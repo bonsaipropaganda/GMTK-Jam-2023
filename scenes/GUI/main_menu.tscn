@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://b8r3ysqpkfpgr" path="res://Resources/MainMenuBackground.png" id="6_kxasg"]
 [ext_resource type="Texture2D" uid="uid://cfvf7f2v2gm0q" path="res://Resources/StartButton.png" id="7_53j2p"]
 [ext_resource type="Script" path="res://scenes/GUI/Start.gd" id="8_fsswg"]
-[ext_resource type="Texture2D" uid="uid://djs0fmkdhhfg1" path="res://Resources/TheOtherSideTitle.png" id="9_baow1"]
 [ext_resource type="AudioStream" uid="uid://c16phdw7320rr" path="res://Resources/music/MainMenuMusic.ogg" id="8_hpi30"]
+[ext_resource type="Texture2D" uid="uid://djs0fmkdhhfg1" path="res://Resources/TheOtherSideTitle.png" id="9_baow1"]
 [ext_resource type="Texture2D" uid="uid://nlj4l4160f2p" path="res://Resources/Cloud.png" id="9_lhftw"]
 [ext_resource type="Script" path="res://scenes/GUI/TheOtherSideTitle.gd" id="10_kybh1"]
 
