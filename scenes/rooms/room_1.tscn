@@ -65,6 +65,3 @@ descending_speed = 150.0
 
 [node name="PassingShadowController" parent="." index="7"]
 PassingShadowWarning = null
-
-[node name="TimeLeftLabel" parent="HUD" index="1"]
-time_left = 5
