@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://b70j0ik3trn31"]
+[gd_scene load_steps=3 format=3 uid="uid://b70j0ik3trn31"]
 
 [ext_resource type="PackedScene" uid="uid://bkrww1b6we3c5" path="res://scenes/room.tscn" id="1_f6vwd"]
+[ext_resource type="Script" path="res://code/level.gd" id="2_qe0vx"]
 
 [node name="Room_1" instance=ExtResource("1_f6vwd")]
+script = ExtResource("2_qe0vx")
 
 [node name="Claw" parent="." index="5"]
 homing_speed = 100.0
