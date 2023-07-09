@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b2xc4746qduib"]
+[gd_scene load_steps=15 format=3 uid="uid://b2xc4746qduib"]
 
 [ext_resource type="Script" path="res://code/GUI/main_menu.gd" id="1_nejb3"]
 [ext_resource type="PackedScene" uid="uid://7084j2cfattr" path="res://scenes/main_game.tscn" id="2_5dagu"]
@@ -7,7 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://b8r3ysqpkfpgr" path="res://Resources/MainMenuBackground.png" id="6_kxasg"]
 [ext_resource type="Texture2D" uid="uid://cfvf7f2v2gm0q" path="res://Resources/StartButton.png" id="7_53j2p"]
 [ext_resource type="Script" path="res://scenes/GUI/Start.gd" id="8_fsswg"]
+[ext_resource type="Texture2D" uid="uid://djs0fmkdhhfg1" path="res://Resources/TheOtherSideTitle.png" id="9_baow1"]
 [ext_resource type="Texture2D" uid="uid://nlj4l4160f2p" path="res://Resources/Cloud.png" id="9_lhftw"]
+[ext_resource type="Script" path="res://scenes/GUI/TheOtherSideTitle.gd" id="10_kybh1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a52gf"]
 atlas = ExtResource("7_53j2p")
@@ -54,13 +56,14 @@ centered = false
 
 [node name="Start" type="AnimatedSprite2D" parent="."]
 texture_filter = 2
-position = Vector2(240, 150)
+position = Vector2(240.25, 200)
 scale = Vector2(0.567057, 0.585648)
 sprite_frames = SubResource("SpriteFrames_88inw")
 animation = &"unpressed"
 autoplay = "unpressed"
 frame_progress = 0.167374
 script = ExtResource("8_fsswg")
+metadata/_edit_group_ = true
 
 [node name="Area2D" type="Area2D" parent="Start"]
 
@@ -101,6 +104,12 @@ stream = ExtResource("5_toblr")
 volume_db = -8.0
 autoplay = true
 bus = &"Music"
+
+[node name="TheOtherSideTitle" type="Sprite2D" parent="."]
+position = Vector2(240, 80)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_baow1")
+script = ExtResource("10_kybh1")
 
 [connection signal="pressed" from="Start" to="." method="_on_start_button_pressed"]
 [connection signal="mouse_entered" from="Start/Area2D" to="Start" method="_on_area_2d_mouse_entered"]

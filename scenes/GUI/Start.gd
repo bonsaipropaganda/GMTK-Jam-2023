@@ -8,8 +8,8 @@ var mouse_in_button := false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var tween = create_tween()
-	tween.tween_property(self, "position", Vector2(240,160), 1).set_trans(Tween.TRANS_SINE)
-	tween.tween_property(self, "position", Vector2(240,150), 1).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(self, "position", Vector2(240,230), 1).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(self, "position", Vector2(240,220), 1).set_trans(Tween.TRANS_SINE)
 	tween.set_loops(50)
 
 

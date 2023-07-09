@@ -130,6 +130,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="LevelLabel" type="Label" parent="HUD"]
+layout_mode = 0
 offset_left = 545.0
 offset_top = 34.0
 offset_right = 599.0
@@ -137,6 +138,7 @@ offset_bottom = 60.0
 text = "Level 1"
 
 [node name="TimeLeftLabel" parent="HUD" instance=ExtResource("10_0gir2")]
+layout_mode = 0
 offset_left = 32.0
 offset_top = 33.0
 offset_right = 132.0
