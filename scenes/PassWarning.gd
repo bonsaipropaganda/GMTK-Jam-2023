@@ -10,6 +10,8 @@ var walk_direction: String = "right"
 @export var PassingShadow: PackedScene
 var rng = RandomNumberGenerator.new()
 
+var shadow_speed
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if(walk_direction == "right"):
@@ -33,6 +35,7 @@ func _on_create_shadow_timer_timeout():
 
 	new_PassingShadow.walk_direction = walk_direction
 	
+	new_PassingShadow.shadow_speed = shadow_speed
 	get_parent().add_child(new_PassingShadow) 
 	
 	queue_free()

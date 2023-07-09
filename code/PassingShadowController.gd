@@ -1,11 +1,17 @@
 extends Node
 
 @export var PassingShadowWarning: PackedScene
+# controls the speed of the shadow scene passing by
+@export var shadow_speed: float
+@export var new_shadow_timer: int
+
 var rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$NewShadow.wait_time = new_shadow_timer
 	$NewShadow.start()
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,7 +27,8 @@ func _on_new_shadow_timeout():
 				new_PassingShadowWarning.walk_direction = "right"
 			1:
 				new_PassingShadowWarning.walk_direction = "left"
-			
+		
+		new_PassingShadowWarning.shadow_speed = shadow_speed
 		add_child(new_PassingShadowWarning) 
 
 

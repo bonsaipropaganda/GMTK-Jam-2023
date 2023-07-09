@@ -7,3 +7,7 @@
 [node name="Claw" parent="." index="5"]
 homing_speed = 100.0
 descending_speed = 150.0
+
+[node name="PassingShadowController" parent="." index="7"]
+shadow_speed = 0.7
+new_shadow_timer = 12

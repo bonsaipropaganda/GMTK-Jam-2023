@@ -1,9 +1,13 @@
 extends Area2D
 
 var walk_direction: String = "right"
+var shadow_speed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	# set the shadow speed
+	$AnimationPlayer.speed_scale = shadow_speed
 	
 	#Set the animation according to the direction
 	if(walk_direction == "right"):
