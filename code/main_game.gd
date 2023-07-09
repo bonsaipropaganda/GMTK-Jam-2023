@@ -36,8 +36,8 @@ func load_level(index: int) -> void:
 	# Load the appropriate level
 	var level_scene: Node = LEVELS[index-1].instantiate()
 	if level_scene is Level:
-		level_scene.game_over.connect(_on_game_over)
-		level_scene.game_won.connect(_on_game_won)
+		level_scene.game_over.connect(_on_game_over, CONNECT_ONE_SHOT)
+		level_scene.game_won.connect(_on_game_won, CONNECT_ONE_SHOT)
 		level_scene.set_level_number(index)
 	$Level.add_child(level_scene)
 	

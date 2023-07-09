@@ -118,4 +118,5 @@ offset_bottom = 59.0
 
 [connection signal="burrowed" from="Player" to="Claw" method="_on_target_burrow_change"]
 [connection signal="target_caught" from="Claw" to="." method="emit_signal" binds= [&"game_over", "You've been caught !"]]
+[connection signal="player_caught" from="PassingShadowController" to="." method="emit_signal" binds= [&"game_over", "You have been seen !!"]]
 [connection signal="level_passed" from="HUD/TimeLeftLabel" to="." method="emit_signal" binds= [&"game_won"]]

@@ -1,5 +1,7 @@
 extends Area2D
 
+signal player_caught()
+
 var walk_direction: String = "right"
 var shadow_speed
 
@@ -19,3 +21,10 @@ func _ready():
 	
 	$AnimationPlayer.play()
 	
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body is Player and not body.is_burrowed:
+		player_caught.emit()
+		# HACK:
+		body.claw_caught()

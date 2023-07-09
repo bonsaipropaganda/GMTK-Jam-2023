@@ -81,3 +81,6 @@ descending_speed = 150.0
 [node name="PassingShadowController" parent="." index="7"]
 shadow_speed = 0.7
 new_shadow_timer = 12
+
+[node name="TimeLeftLabel" parent="HUD" index="1"]
+time_left = 5
