@@ -4,15 +4,23 @@ extends CharacterBody2D
 signal burrowed(state: bool)
 
 
-@export var speed: float = 300.0
-@export var jump_velocity = -400.0
+@export var grounded_input_buffer: float = 0.1
 
-@export var jump_buffer: float = 0.1
+@export_group("Movement")
+@export var acceleration_time: float = 0.4
+@export var turn_time: float         = 0.05
+@export var deceleration_time: float = 0.2
+
+@export var max_speed: float = 200.0
+@export var jump_velocity: float = 300.0
+@export var jump_cancel_time: float = 0.2
+@export var in_air_control: float = 0.8
+
 @export var coyote_time: float = 0.085
 
 @export_group("Burrow")
-@export var air_expire_speed: float = 50.0
-@export var air_recover_speed: float = 25.0
+@export var burrow_total_time: float = 2.0
+@export var burrow_recover_time: float = 4.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")

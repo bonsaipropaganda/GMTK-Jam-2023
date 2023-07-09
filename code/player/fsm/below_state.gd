@@ -2,7 +2,8 @@ extends PlayerState
 
 
 func _physics_process(delta: float) -> void:
-	player.air -= 50.0 * delta
+	var air_lose_speed: float = 100.0 / player.burrow_total_time
+	player.air -= air_lose_speed * delta
 	
 	if player.air <= 0.5:
 		player.air = 0.0
