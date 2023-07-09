@@ -65,7 +65,7 @@ scale = Vector2(0.567057, 0.585648)
 sprite_frames = SubResource("SpriteFrames_88inw")
 animation = &"unpressed"
 autoplay = "unpressed"
-frame_progress = 0.167374
+frame_progress = 0.998396
 script = ExtResource("8_fsswg")
 
 [node name="Area2D" type="Area2D" parent="Start"]
