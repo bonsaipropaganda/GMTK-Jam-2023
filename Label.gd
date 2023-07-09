@@ -1,6 +1,6 @@
 extends Label
 
-@export var time_left:= 30
+@export var time_left:= 5
 signal level_passed
 
 # Called when the node enters the scene tree for the first time.
@@ -21,5 +21,5 @@ func _on_level_timer_timeout():
 	if time_left <= 0:
 		$LevelTimer.stop()
 		level_passed.emit()
-		time_left = 30
+		time_left = 5
 		$LevelTimer.start()
