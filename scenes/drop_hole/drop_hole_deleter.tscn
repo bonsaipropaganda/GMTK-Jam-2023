@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://da6kfymxc1m1x"]
+
+[ext_resource type="Script" path="res://code/drop_hole/drop_hole_deleter.gd" id="1_a0jkf"]
+
+[node name="DropHoleDeleter" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_a0jkf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
