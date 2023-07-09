@@ -1,8 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://5ya4gbngh8q1"]
+[gd_scene load_steps=3 format=3 uid="uid://5ya4gbngh8q1"]
 
 [ext_resource type="FontFile" uid="uid://c6s4u0k31pcnn" path="res://Resources/Fonts/Kenney Future Narrow.ttf" id="1_ao3m3"]
+[ext_resource type="Texture2D" uid="uid://b8r3ysqpkfpgr" path="res://Resources/MainMenuBackground.png" id="1_he3cm"]
 
 [node name="EndScreen" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.576471)
+position = Vector2(964, 538)
+scale = Vector2(3.04375, 3.02222)
+texture = ExtResource("1_he3cm")
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 5
@@ -12,8 +19,9 @@ offset_top = 270.0
 offset_right = 1920.0
 offset_bottom = 1083.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_ao3m3")
 theme_override_font_sizes/font_size = 64
-text = "Our little hero survived 5 days in this crazy claw world. Thankfully, by the 5th day, they wisened up and escaped this mad house on towards a life of freedom. Maybe the next time you put some coins into a claw machine you'll think about what it's like on the otherside."
+text = "Our little hero survived 5 days in this crazy claw world. Thankfully, by the 5th day, they managed to escape this mad house on towards a life of freedom. Maybe the next time you put some coins into a claw machine you'll think about what it's like on the otherside."
 horizontal_alignment = 1
 autowrap_mode = 2
