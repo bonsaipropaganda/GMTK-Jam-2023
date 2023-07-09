@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://b70j0ik3trn31"]
+
+[ext_resource type="PackedScene" uid="uid://bkrww1b6we3c5" path="res://scenes/room.tscn" id="1_f6vwd"]
+
+[node name="Room_1" instance=ExtResource("1_f6vwd")]
+
+[node name="Claw" parent="." index="5"]
+homing_speed = 100.0
+descending_speed = 150.0
+
+[node name="PassingShadowController" parent="." index="7"]
+PassingShadowWarning = null
