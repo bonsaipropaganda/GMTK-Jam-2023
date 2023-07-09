@@ -23,4 +23,4 @@ func _on_area_2d_mouse_exited():
 func _input(event):
 	if mouse_in_button == true:
 		if event.is_action_pressed("l_click"):
-			get_tree().change_scene_to_packed(main_game_scene)
+			get_tree().change_scene_to_file("res://scenes/main_game.tscn")
