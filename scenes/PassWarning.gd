@@ -21,14 +21,13 @@ func _ready():
 	$CreateShadowTimer.start()
 	set_modulate(Color(1,1,1,0))
 	
-	var tween = get_tree().create_tween()
-	tween.set_loops(blink_rate)
+	var tween = create_tween()
+	tween.set_loops(int(blink_rate))
 	tween.tween_property(self, "modulate", Color(1, 1, 1, 1) , tween_rate) #Fade In
 	tween.tween_property(self, "modulate", Color(1, 1, 1, 0) , tween_rate) #Fade Out
 
 
 func _on_create_shadow_timer_timeout():
-	print("banana")
 	var new_PassingShadow = PassingShadow.instantiate()
 
 	new_PassingShadow.walk_direction = walk_direction

@@ -48,8 +48,7 @@ func claw_can_catch() -> bool:
 	return not is_burrowed
 	
 
-func _on_shadow_detection_area_entered(area):
-	print("Hit!")
+func _on_shadow_detection_area_entered(_area):
 	# only get caught if you are not burrowed
 	if is_burrowed == false:
 		$PlayerFSM.switch_to_state("CaughtState")
