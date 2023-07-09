@@ -424,7 +424,7 @@ position = Vector2(370, 308)
 scale = Vector2(0.52, 4.19697)
 
 [node name="Floor and walls6" parent="." instance=ExtResource("10_hxxgt")]
-position = Vector2(265, 267)
+position = Vector2(264, 267)
 rotation = 1.5708
 scale = Vector2(0.287062, 1.11697)
 
