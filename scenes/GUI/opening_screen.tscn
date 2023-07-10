@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://3uqbgr2o8epl"]
+
+[ext_resource type="Texture2D" uid="uid://b8r3ysqpkfpgr" path="res://Resources/MainMenuBackground.png" id="1_ugc5b"]
+[ext_resource type="FontFile" uid="uid://c6s4u0k31pcnn" path="res://Resources/Fonts/Kenney Future Narrow.ttf" id="2_mlk17"]
+
+[node name="EndScreen" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.576471)
+position = Vector2(964, 538)
+scale = Vector2(3.04375, 3.02222)
+texture = ExtResource("1_ugc5b")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 270.0
+offset_right = 1920.0
+offset_bottom = 1083.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_mlk17")
+theme_override_font_sizes/font_size = 64
+text = "Uh oh! Our hero, Mr. Plushie Plush has found himself in a predicament! He's in a claw arcade game! You know the ones where people get free toys and stuff. Yep. Help our hero survive! If he can make it to day 5 he'll be able to escape!"
+horizontal_alignment = 1
+autowrap_mode = 2
