@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0l06uoasx8n0"]
+[gd_scene load_steps=5 format=3 uid="uid://d0l06uoasx8n0"]
 
 [ext_resource type="Script" path="res://code/GUI/pause_menu.gd" id="1_glqld"]
+[ext_resource type="AudioStream" uid="uid://cj7xj6ugybtwx" path="res://Resources/sound/click.mp3" id="2_c0fjb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgec0"]
 bg_color = Color(0, 0, 0, 0.392157)
@@ -67,6 +68,9 @@ text = "Main Menu"
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_c0fjb")
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]

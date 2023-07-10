@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b2xc4746qduib"]
+[gd_scene load_steps=16 format=3 uid="uid://b2xc4746qduib"]
 
 [ext_resource type="Script" path="res://code/GUI/main_menu.gd" id="1_nejb3"]
 [ext_resource type="PackedScene" uid="uid://7084j2cfattr" path="res://scenes/main_game.tscn" id="2_5dagu"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://djs0fmkdhhfg1" path="res://Resources/TheOtherSideTitle.png" id="9_baow1"]
 [ext_resource type="Texture2D" uid="uid://nlj4l4160f2p" path="res://Resources/Cloud.png" id="9_lhftw"]
 [ext_resource type="Script" path="res://scenes/GUI/TheOtherSideTitle.gd" id="10_kybh1"]
+[ext_resource type="AudioStream" uid="uid://cj7xj6ugybtwx" path="res://Resources/sound/click.mp3" id="11_f5xbn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a52gf"]
 atlas = ExtResource("7_53j2p")
@@ -110,6 +111,9 @@ position = Vector2(240, 80)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("9_baow1")
 script = ExtResource("10_kybh1")
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_f5xbn")
 
 [connection signal="pressed" from="Start" to="." method="_on_start_button_pressed"]
 [connection signal="mouse_entered" from="Start/Area2D" to="Start" method="_on_area_2d_mouse_entered"]
