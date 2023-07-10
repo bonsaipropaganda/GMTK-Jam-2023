@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://b5nmge1uoj7tm"]
+[gd_scene load_steps=49 format=3 uid="uid://b5nmge1uoj7tm"]
 
 [ext_resource type="Script" path="res://code/player/player.gd" id="1_vlwsc"]
 [ext_resource type="Texture2D" uid="uid://py1uhugtocd7" path="res://Resources/1 Pink_Monster/Pink_Monster_Death_8.png" id="2_ni63t"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cwieerck1k2kc" path="res://Resources/1 Pink_Monster/Pink_Monster_Run_6.png" id="5_m1yel"]
 [ext_resource type="Script" path="res://code/player/fsm/caught_state.gd" id="6_5j8be"]
 [ext_resource type="Script" path="res://code/player/fsm/drophole_fall_state.gd" id="7_qs0le"]
+[ext_resource type="AudioStream" uid="uid://chi7xq8vv4bvh" path="res://Resources/sound/jump.mp3" id="11_ob3k8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ctwu3"]
 atlas = ExtResource("3_w2i1o")
@@ -330,6 +331,9 @@ show_percentage = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShadowDetection"]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_8kxhc")
+
+[node name="Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_ob3k8")
 
 [connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
 [connection signal="area_entered" from="ShadowDetection" to="." method="_on_shadow_detection_area_entered"]

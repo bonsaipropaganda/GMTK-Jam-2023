@@ -39,6 +39,7 @@ func _physics_process(delta: float) -> void:
 	if jump_last_press < player.grounded_input_buffer and last_ground < player.coyote_time:
 		player.velocity.y = -player.jump_velocity
 		player.sprite.set_animation("jumping_start")
+		$"../../Jump".play()
 	
 	# Jump cancel
 	if jump_cancel:
