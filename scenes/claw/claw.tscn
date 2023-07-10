@@ -1,23 +1,28 @@
-[gd_scene load_steps=19 format=3 uid="uid://cgubjtnwu5enp"]
+[gd_scene load_steps=24 format=3 uid="uid://cgubjtnwu5enp"]
 
 [ext_resource type="Script" path="res://code/claw/claw.gd" id="1_xf3ji"]
-[ext_resource type="Texture2D" uid="uid://cnwhw63ppkf3" path="res://Resources/Untitled.png" id="2_vc8fh"]
+[ext_resource type="Texture2D" uid="uid://xy8mndt41gus" path="res://Resources/claw/Chain.png" id="2_edc2x"]
+[ext_resource type="Texture2D" uid="uid://y608xi1h2165" path="res://Resources/claw/PartLeft.png" id="3_2auvq"]
 [ext_resource type="Script" path="res://code/claw/fsm/claw_fsm.gd" id="3_dlgb5"]
+[ext_resource type="Texture2D" uid="uid://bwit7u2qeo6qe" path="res://Resources/claw/hookLeft.png" id="3_jc5kd"]
 [ext_resource type="Script" path="res://code/claw/fsm/homing_state.gd" id="4_2ckmf"]
+[ext_resource type="Texture2D" uid="uid://dyqnym204swb5" path="res://Resources/claw/partRight.png" id="4_id0g0"]
 [ext_resource type="Script" path="res://code/claw/fsm/descend_state.gd" id="5_kb0bm"]
+[ext_resource type="Texture2D" uid="uid://463cpuqdg07k" path="res://Resources/claw/hookRight.png" id="5_sff7q"]
 [ext_resource type="Script" path="res://code/claw/fsm/ascend_state.gd" id="6_m2jcv"]
 [ext_resource type="Script" path="res://code/claw/fsm/closing_state.gd" id="7_1oteu"]
 [ext_resource type="Script" path="res://code/claw/fsm/goto_drophole_state.gd" id="8_1mu6r"]
 [ext_resource type="Script" path="res://code/claw/fsm/dropping_state.gd" id="9_402ap"]
+[ext_resource type="Texture2D" uid="uid://cpx05b3gina2d" path="res://Resources/claw/hand.png" id="14_8nu7v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e168e"]
 size = Vector2(20, 600)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_50fir"]
-size = Vector2(20, 130)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w1xml"]
 size = Vector2(20, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_50fir"]
+size = Vector2(20, 130)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqdnj"]
 size = Vector2(20, 40)
@@ -139,9 +144,19 @@ position = Vector2(0, -390)
 shape = SubResource("RectangleShape2D_e168e")
 
 [node name="Sprite" type="Sprite2D" parent="Arm"]
-position = Vector2(7.15256e-07, -55)
-scale = Vector2(0.454545, 35.1)
-texture = ExtResource("2_vc8fh")
+position = Vector2(-4.76837e-07, -40)
+scale = Vector2(1.5, 1)
+texture = ExtResource("2_edc2x")
+
+[node name="Sprite2" type="Sprite2D" parent="Arm"]
+position = Vector2(-5.96046e-07, 184)
+scale = Vector2(1.5, 1)
+texture = ExtResource("2_edc2x")
+
+[node name="Sprite3" type="Sprite2D" parent="Arm"]
+position = Vector2(-2.38419e-07, -264)
+scale = Vector2(1.5, 1)
+texture = ExtResource("2_edc2x")
 
 [node name="LeftHand" type="AnimatableBody2D" parent="."]
 position = Vector2(0, -80)
@@ -149,30 +164,43 @@ collision_layer = 4
 collision_mask = 2
 sync_to_physics = false
 
+[node name="LowerPart" type="CollisionShape2D" parent="LeftHand"]
+position = Vector2(-98, 45)
+rotation = -0.174533
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_w1xml")
+
+[node name="Sprite" type="Sprite2D" parent="LeftHand/LowerPart"]
+position = Vector2(0.974056, 0.954111)
+scale = Vector2(2.35303, 2.03489)
+texture = ExtResource("3_jc5kd")
+
 [node name="UpperPart" type="CollisionShape2D" parent="LeftHand"]
 position = Vector2(-50, 8)
 rotation = 1.39626
 shape = SubResource("RectangleShape2D_50fir")
 
 [node name="Sprite" type="Sprite2D" parent="LeftHand/UpperPart"]
-position = Vector2(-0.364443, 2.32227)
-scale = Vector2(0.4328, 6.23455)
-texture = ExtResource("2_vc8fh")
-
-[node name="LowerPart" type="CollisionShape2D" parent="LeftHand"]
-position = Vector2(-98, 45)
-rotation = -0.174533
-shape = SubResource("RectangleShape2D_w1xml")
-
-[node name="Sprite" type="Sprite2D" parent="LeftHand/LowerPart"]
-position = Vector2(0.974056, 0.954111)
-scale = Vector2(0.420526, 2.03489)
-texture = ExtResource("2_vc8fh")
+position = Vector2(1.73346, 8.2422)
+rotation = -1.56789
+scale = Vector2(2.10088, 1.51749)
+texture = ExtResource("3_2auvq")
 
 [node name="RightHand" type="AnimatableBody2D" parent="."]
 position = Vector2(0, -80)
 collision_layer = 4
 sync_to_physics = false
+
+[node name="LowerPart" type="CollisionShape2D" parent="RightHand"]
+position = Vector2(98, 45)
+rotation = 0.174533
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_eqdnj")
+
+[node name="Sprite" type="Sprite2D" parent="RightHand/LowerPart"]
+position = Vector2(0.498421, 0.0361154)
+scale = Vector2(2.17245, 1.94542)
+texture = ExtResource("5_sff7q")
 
 [node name="UpperPart" type="CollisionShape2D" parent="RightHand"]
 position = Vector2(50, 8)
@@ -180,19 +208,10 @@ rotation = -1.39626
 shape = SubResource("RectangleShape2D_50fir")
 
 [node name="Sprite" type="Sprite2D" parent="RightHand/UpperPart"]
-position = Vector2(-0.387099, -0.160484)
-scale = Vector2(0.469697, 6.41844)
-texture = ExtResource("2_vc8fh")
-
-[node name="LowerPart" type="CollisionShape2D" parent="RightHand"]
-position = Vector2(98, 45)
-rotation = 0.174533
-shape = SubResource("RectangleShape2D_eqdnj")
-
-[node name="Sprite" type="Sprite2D" parent="RightHand/LowerPart"]
-position = Vector2(0.498421, 0.0361154)
-scale = Vector2(0.482101, 1.99817)
-texture = ExtResource("2_vc8fh")
+position = Vector2(-2.43874, 4.52311)
+rotation = 1.58188
+scale = Vector2(2.33184, 1.32919)
+texture = ExtResource("4_id0g0")
 
 [node name="HandArea" type="Area2D" parent="."]
 collision_layer = 0
@@ -228,3 +247,8 @@ script = ExtResource("8_1mu6r")
 
 [node name="DroppingState" type="Node" parent="ClawFSM"]
 script = ExtResource("9_402ap")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -98)
+scale = Vector2(1.16667, 1.875)
+texture = ExtResource("14_8nu7v")
