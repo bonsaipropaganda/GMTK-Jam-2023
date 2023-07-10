@@ -23,7 +23,8 @@ func _input(event):
 	if event.is_action_pressed("pause"):
 		var pause: Node = PauseMenu.instantiate()
 		add_child(pause)
-
+	if event.is_action_pressed("l_click"):
+		$Click.play()
 
 func load_level(index: int) -> void:
 	current_level = index

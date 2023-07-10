@@ -25,3 +25,7 @@ func _on_quit_button_pressed():
 func _on_settings_buttion_pressed() -> void:
 	var settings: Node = SettingsMenu.instantiate()
 	add_child(settings)
+
+func _input(event):
+	if event.is_action_pressed("l_click"):
+		$Click.play()
