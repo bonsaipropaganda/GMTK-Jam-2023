@@ -167,7 +167,6 @@ sync_to_physics = false
 [node name="LowerPart" type="CollisionShape2D" parent="LeftHand"]
 position = Vector2(-98, 45)
 rotation = -0.174533
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_w1xml")
 
 [node name="Sprite" type="Sprite2D" parent="LeftHand/LowerPart"]
@@ -194,7 +193,6 @@ sync_to_physics = false
 [node name="LowerPart" type="CollisionShape2D" parent="RightHand"]
 position = Vector2(98, 45)
 rotation = 0.174533
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_eqdnj")
 
 [node name="Sprite" type="Sprite2D" parent="RightHand/LowerPart"]
