@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4llgcmimq7x0"]
+
+[ext_resource type="PackedScene" uid="uid://da6kfymxc1m1x" path="res://scenes/drop_hole/drop_hole_deleter.tscn" id="1_vhp8n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_knqyi"]
+size = Vector2(110, 5.74)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_krl1s"]
+size = Vector2(88.955, 20)
+
+[node name="DropHole" type="StaticBody2D"]
+position = Vector2(320, 265)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_knqyi")
+
+[node name="DropHoleDeleter" parent="." instance=ExtResource("1_vhp8n")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropHoleDeleter"]
+position = Vector2(0, 52.135)
+shape = SubResource("RectangleShape2D_krl1s")
+debug_color = Color(1, 0.12549, 0.0784314, 0.419608)

@@ -1,20 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://bkrww1b6we3c5"]
+[gd_scene load_steps=10 format=3 uid="uid://bkrww1b6we3c5"]
 
 [ext_resource type="Script" path="res://code/level.gd" id="1_vf2s3"]
 [ext_resource type="Texture2D" uid="uid://oxljaie05pk2" path="res://Resources/MainGameArt.png" id="2_fet56"]
 [ext_resource type="PackedScene" uid="uid://cgubjtnwu5enp" path="res://scenes/claw/claw.tscn" id="4_e0aw4"]
 [ext_resource type="PackedScene" uid="uid://b5nmge1uoj7tm" path="res://scenes/player/player.tscn" id="5_ij76f"]
-[ext_resource type="PackedScene" uid="uid://da6kfymxc1m1x" path="res://scenes/drop_hole/drop_hole_deleter.tscn" id="7_mqfdc"]
+[ext_resource type="PackedScene" uid="uid://c4llgcmimq7x0" path="res://scenes/drop_hole/drop_hole.tscn" id="6_paohp"]
 [ext_resource type="PackedScene" uid="uid://btoffwa88b5ko" path="res://scenes/Passing Shadow/passing_shadow_controller.tscn" id="8_8pv6e"]
 [ext_resource type="Texture2D" uid="uid://cokhgc52ekac" path="res://Resources/SketchSheet.png" id="9_yu2iu"]
 [ext_resource type="PackedScene" uid="uid://c6msqwkqldv8y" path="res://scenes/GUI/time_left_label.tscn" id="10_0gir2"]
 [ext_resource type="PackedScene" uid="uid://b2vjpfnyr8b1d" path="res://scenes/floor_and_walls.tscn" id="10_hxxgt"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_knqyi"]
-size = Vector2(110, 5.74)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_krl1s"]
-size = Vector2(88.955, 20)
 
 [node name="Room" type="Node2D"]
 script = ExtResource("1_vf2s3")
@@ -42,21 +36,7 @@ position = Vector2(329, 75)
 target = NodePath("../Player")
 drop_hole = NodePath("../DropHole")
 
-[node name="DropHole" type="StaticBody2D" parent="."]
-position = Vector2(320, 265)
-collision_layer = 8
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DropHole"]
-position = Vector2(0, 2)
-shape = SubResource("RectangleShape2D_knqyi")
-
-[node name="DropHoleDeleter" parent="DropHole" instance=ExtResource("7_mqfdc")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DropHole/DropHoleDeleter"]
-position = Vector2(0, 52.135)
-shape = SubResource("RectangleShape2D_krl1s")
-debug_color = Color(1, 0.12549, 0.0784314, 0.419608)
+[node name="DropHole" parent="." instance=ExtResource("6_paohp")]
 
 [node name="PassingShadowController" parent="." instance=ExtResource("8_8pv6e")]
 

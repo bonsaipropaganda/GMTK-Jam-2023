@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cgubjtnwu5enp"]
+[gd_scene load_steps=25 format=3 uid="uid://cgubjtnwu5enp"]
 
 [ext_resource type="Script" path="res://code/claw/claw.gd" id="1_xf3ji"]
 [ext_resource type="Texture2D" uid="uid://xy8mndt41gus" path="res://Resources/claw/Chain.png" id="2_edc2x"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://code/claw/fsm/goto_drophole_state.gd" id="8_1mu6r"]
 [ext_resource type="Script" path="res://code/claw/fsm/dropping_state.gd" id="9_402ap"]
 [ext_resource type="Texture2D" uid="uid://cpx05b3gina2d" path="res://Resources/claw/hand.png" id="14_8nu7v"]
+[ext_resource type="Script" path="res://scenes/claw/QuickAttackState.gd" id="14_nf2vx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e168e"]
 size = Vector2(20, 600)
@@ -137,6 +138,8 @@ _data = {
 [node name="Claw" type="AnimatableBody2D"]
 scale = Vector2(0.5, 0.5)
 collision_layer = 4
+collision_mask = 0
+sync_to_physics = false
 script = ExtResource("1_xf3ji")
 
 [node name="Arm" type="CollisionShape2D" parent="."]
@@ -245,6 +248,9 @@ script = ExtResource("8_1mu6r")
 
 [node name="DroppingState" type="Node" parent="ClawFSM"]
 script = ExtResource("9_402ap")
+
+[node name="QuickAttackState" type="Node" parent="ClawFSM"]
+script = ExtResource("14_nf2vx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -98)

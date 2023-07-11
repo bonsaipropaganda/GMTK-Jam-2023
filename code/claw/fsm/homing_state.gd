@@ -13,3 +13,7 @@ func _physics_process(delta: float) -> void:
 	
 	if distance < claw.grab_distance:
 		fsm.switch_to_state("DescendState")
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed(&"quick"):
+		fsm.switch_to_state("QuickAttackState")

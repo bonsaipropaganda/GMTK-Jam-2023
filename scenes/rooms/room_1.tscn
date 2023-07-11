@@ -50,18 +50,12 @@ position = Vector2(508, 318)
 [node name="Plushee15" parent="Plushies" index="14" instance=ExtResource("2_20fmp")]
 position = Vector2(496, 297)
 
-[node name="Plushee16" parent="Plushies" index="15" instance=ExtResource("2_20fmp")]
-position = Vector2(43, 318)
-
-[node name="Plushee17" parent="Plushies" index="16" instance=ExtResource("2_20fmp")]
-position = Vector2(42, 298)
-
-[node name="Plushee18" parent="Plushies" index="17" instance=ExtResource("2_20fmp")]
+[node name="Plushee18" parent="Plushies" index="15" instance=ExtResource("2_20fmp")]
 position = Vector2(242, 277)
 
 [node name="Claw" parent="." index="5"]
-homing_speed = 100.0
-descending_speed = 150.0
+homing_speed = 150.0
+descending_speed = 200.0
 
 [node name="PassingShadowController" parent="." index="7"]
 PassingShadowWarning = null
