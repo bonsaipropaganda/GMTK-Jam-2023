@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bkrww1b6we3c5"]
+[gd_scene load_steps=11 format=3 uid="uid://bkrww1b6we3c5"]
 
 [ext_resource type="Script" path="res://code/level.gd" id="1_vf2s3"]
 [ext_resource type="Texture2D" uid="uid://oxljaie05pk2" path="res://Resources/MainGameArt.png" id="2_fet56"]
+[ext_resource type="Script" path="res://scenes/Camera2D.gd" id="2_v70k8"]
 [ext_resource type="PackedScene" uid="uid://cgubjtnwu5enp" path="res://scenes/claw/claw.tscn" id="4_e0aw4"]
 [ext_resource type="PackedScene" uid="uid://b5nmge1uoj7tm" path="res://scenes/player/player.tscn" id="5_ij76f"]
 [ext_resource type="PackedScene" uid="uid://c4llgcmimq7x0" path="res://scenes/drop_hole/drop_hole.tscn" id="6_paohp"]
@@ -16,6 +17,10 @@ script = ExtResource("1_vf2s3")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(320, 180)
 zoom = Vector2(3, 3)
+script = ExtResource("2_v70k8")
+
+[node name="ResetCam" type="Timer" parent="Camera2D"]
+wait_time = 0.25
 
 [node name="Player" parent="." instance=ExtResource("5_ij76f")]
 position = Vector2(105, 312)
