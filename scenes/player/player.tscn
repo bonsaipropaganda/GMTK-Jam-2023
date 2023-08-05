@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://b5nmge1uoj7tm"]
+[gd_scene load_steps=52 format=3 uid="uid://b5nmge1uoj7tm"]
 
 [ext_resource type="Script" path="res://code/player/player.gd" id="1_vlwsc"]
 [ext_resource type="Texture2D" uid="uid://py1uhugtocd7" path="res://Resources/1 Pink_Monster/Pink_Monster_Death_8.png" id="2_ni63t"]
@@ -13,6 +13,10 @@
 [ext_resource type="AudioStream" uid="uid://chi7xq8vv4bvh" path="res://Resources/sound/jump.mp3" id="11_ob3k8"]
 [ext_resource type="AudioStream" uid="uid://dl32w12apcmnj" path="res://Resources/sound/burrowing.mp3" id="12_cbeed"]
 [ext_resource type="AudioStream" uid="uid://cq7jym14c0pw4" path="res://Resources/sound/dash.wav" id="13_cdnsm"]
+
+[sub_resource type="Gradient" id="Gradient_tg0uh"]
+offsets = PackedFloat32Array(0.0037594, 1)
+colors = PackedColorArray(0.85538, 0.441575, 0.904296, 1, 0.557284, 0.000239507, 0.562061, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ctwu3"]
 atlas = ExtResource("3_w2i1o")
@@ -290,6 +294,26 @@ collision_layer = 2
 collision_mask = 15
 script = ExtResource("1_vlwsc")
 
+[node name="DashParticles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 50
+lifetime = 0.25
+randomness = 0.5
+lifetime_randomness = 0.5
+emission_shape = 1
+emission_sphere_radius = 5.0
+spread = 165.36
+gravity = Vector2(2.08165e-12, 2.08165e-12)
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+scale_amount_min = 3.0
+scale_amount_max = 5.0
+color = Color(0.823529, 0.54902, 0.796078, 1)
+color_ramp = SubResource("Gradient_tg0uh")
+
+[node name="DashTimer" type="Timer" parent="DashParticles"]
+wait_time = 0.25
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qc5ra")
 animation = &"jumping_start"
@@ -345,5 +369,14 @@ bus = &"Sfx"
 [node name="Dash" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_cdnsm")
 
+[node name="SweatParticles" type="CPUParticles2D" parent="."]
+position = Vector2(2.08165e-12, 5)
+amount = 4
+emission_shape = 1
+emission_sphere_radius = 3.0
+direction = Vector2(1, 2.08165e-12)
+gravity = Vector2(2.08165e-12, 1000)
+
+[connection signal="timeout" from="DashParticles/DashTimer" to="PlayerFSM/AboveState" method="_on_dash_timer_timeout"]
 [connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
 [connection signal="area_entered" from="ShadowDetection" to="." method="_on_shadow_detection_area_entered"]

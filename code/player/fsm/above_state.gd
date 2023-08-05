@@ -77,12 +77,15 @@ func _physics_process(delta: float) -> void:
 		# Set to running if on ground
 		if player.is_on_floor() and player.sprite.animation != "running" and player.sprite.animation != "out_of_burrow":
 			player.sprite.set_animation("running")
-			
+		
 		# Dash Action
 		if (dash):
 			player.velocity.x = move_toward(player.velocity.x, target_speed * player.dash_multiplier, accel * delta * player.dash_multiplier)
 			$"../../Dash".play()
+			$"../../DashParticles".emitting = true # Turned off in timeout event for DashTimer
+			$"../../DashParticles/DashTimer".start()
 			dash = false
+			
 	else:
 		var decel: float = player.max_speed / player.deceleration_time
 		player.velocity.x = move_toward(player.velocity.x, 0, decel * delta)
@@ -119,3 +122,7 @@ func _ready() -> void:
 		player.sprite.animation = "out_of_burrow"
 		player.sprite.play()
 	)
+
+# Turn off dash particles if speed is back to normal
+func _on_dash_timer_timeout():
+	$"../../DashParticles".emitting = false
