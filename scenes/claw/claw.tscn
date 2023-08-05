@@ -263,6 +263,7 @@ scale = Vector2(1.16667, 1.875)
 texture = ExtResource("14_8nu7v")
 
 [node name="QuickAttack" type="ProgressBar" parent="."]
+show_percentage = false
 script = ExtResource("16_sjpxx")
 
 [node name="QuickAttackTimer" type="Timer" parent="QuickAttack"]
