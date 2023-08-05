@@ -20,9 +20,13 @@ signal target_caught()
 
 @export var burrowed_deceleration: float = 600.0
 
+@export_group("Quick Attack")
 ## The speed at which the claw descends during a quick attack
-@export var quick_attack_speed: float = 1750
-
+@export var quick_attack_speed: float = 1000.0
+## The average length of time between each quick attack
+@export var quick_attack_timer: float = 7.0
+## Time between becoming active and actually attacking to allow the player to respond
+@export var quick_attack_buffer: float = 2.0
 
 ## If the player is inside this area, close the hand
 @onready var hand_area: Area2D = $HandArea

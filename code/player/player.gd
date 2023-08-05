@@ -22,6 +22,8 @@ signal burrowed(state: bool)
 @export var burrow_total_time: float = 2.0
 @export var burrow_recover_time: float = 4.0
 
+@export var dash_multiplier: float = 50
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 

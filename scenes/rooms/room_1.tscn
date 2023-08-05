@@ -5,6 +5,9 @@
 
 [node name="Room_1" instance=ExtResource("1_f6vwd")]
 
+[node name="PassingShadowController" parent="." index="3"]
+PassingShadowWarning = null
+
 [node name="Plushee" parent="Plushies" index="0" instance=ExtResource("2_20fmp")]
 position = Vector2(254, 318)
 
@@ -53,9 +56,7 @@ position = Vector2(496, 297)
 [node name="Plushee18" parent="Plushies" index="15" instance=ExtResource("2_20fmp")]
 position = Vector2(242, 277)
 
-[node name="Claw" parent="." index="5"]
+[node name="Claw" parent="." index="6"]
 homing_speed = 150.0
 descending_speed = 200.0
-
-[node name="PassingShadowController" parent="." index="7"]
-PassingShadowWarning = null
+grab_distance = 30.0

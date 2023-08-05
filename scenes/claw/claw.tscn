@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cgubjtnwu5enp"]
+[gd_scene load_steps=29 format=3 uid="uid://cgubjtnwu5enp"]
 
 [ext_resource type="Script" path="res://code/claw/claw.gd" id="1_xf3ji"]
 [ext_resource type="Texture2D" uid="uid://xy8mndt41gus" path="res://Resources/claw/Chain.png" id="2_edc2x"]
@@ -15,6 +15,10 @@
 [ext_resource type="Script" path="res://code/claw/fsm/dropping_state.gd" id="9_402ap"]
 [ext_resource type="Texture2D" uid="uid://cpx05b3gina2d" path="res://Resources/claw/hand.png" id="14_8nu7v"]
 [ext_resource type="Script" path="res://scenes/claw/QuickAttackState.gd" id="14_nf2vx"]
+[ext_resource type="Script" path="res://scenes/claw/QuickAttackChargeBar.gd" id="16_sjpxx"]
+[ext_resource type="AudioStream" uid="uid://b4indkr1ian4i" path="res://Resources/sound/Buzzer.mp3" id="17_cx1js"]
+[ext_resource type="AudioStream" uid="uid://bd63gdpe48lyr" path="res://Resources/sound/Crash.mp3" id="18_e4rsf"]
+[ext_resource type="AudioStream" uid="uid://b8xygex1ad545" path="res://Resources/sound/OrangeBuzz.mp3" id="19_8p2da"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e168e"]
 size = Vector2(20, 600)
@@ -29,7 +33,7 @@ size = Vector2(20, 130)
 size = Vector2(20, 40)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_88500"]
-radius = 30.0
+radius = 66.0303
 
 [sub_resource type="Animation" id="Animation_k8aej"]
 length = 0.001
@@ -220,6 +224,7 @@ collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HandArea"]
+position = Vector2(0, -48)
 shape = SubResource("CircleShape2D_88500")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -252,7 +257,26 @@ script = ExtResource("9_402ap")
 [node name="QuickAttackState" type="Node" parent="ClawFSM"]
 script = ExtResource("14_nf2vx")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="ChainSprite" type="Sprite2D" parent="."]
 position = Vector2(0, -98)
 scale = Vector2(1.16667, 1.875)
 texture = ExtResource("14_8nu7v")
+
+[node name="QuickAttack" type="ProgressBar" parent="."]
+script = ExtResource("16_sjpxx")
+
+[node name="QuickAttackTimer" type="Timer" parent="QuickAttack"]
+wait_time = 3.0
+autostart = true
+
+[node name="Buzzer" type="AudioStreamPlayer2D" parent="QuickAttack"]
+stream = ExtResource("17_cx1js")
+
+[node name="Collision" type="AudioStreamPlayer2D" parent="QuickAttack"]
+stream = ExtResource("18_e4rsf")
+
+[node name="OrangeBuzzer" type="AudioStreamPlayer2D" parent="QuickAttack"]
+scale = Vector2(2, 2)
+stream = ExtResource("19_8p2da")
+
+[connection signal="timeout" from="QuickAttack/QuickAttackTimer" to="QuickAttack" method="_on_quick_attack_timer_timeout"]

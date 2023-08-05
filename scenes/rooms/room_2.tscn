@@ -5,6 +5,10 @@
 
 [node name="Room_2" instance=ExtResource("1_sxe35")]
 
+[node name="PassingShadowController" parent="." index="3"]
+shadow_speed = 0.7
+new_shadow_timer = 12
+
 [node name="Plushee" parent="Plushies" index="0" instance=ExtResource("2_2nvvc")]
 position = Vector2(254, 318)
 
@@ -74,13 +78,9 @@ rotation = 0.55494
 position = Vector2(199, 296)
 rotation = 0.18344
 
-[node name="Claw" parent="." index="5"]
+[node name="Claw" parent="." index="6"]
 homing_speed = 100.0
 descending_speed = 150.0
-
-[node name="PassingShadowController" parent="." index="7"]
-shadow_speed = 0.7
-new_shadow_timer = 12
 
 [node name="LevelLabel" parent="HUD" index="0"]
 text = "Level 2"

@@ -12,8 +12,8 @@ func _physics_process(delta: float) -> void:
 	claw.position.x += direction * claw.homing_speed * delta
 	
 	if distance < claw.grab_distance:
-		fsm.switch_to_state("DescendState")
-
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed(&"quick"):
-		fsm.switch_to_state("QuickAttackState")
+		if $"../../QuickAttack".quick_attack_ready():
+			fsm.switch_to_state("QuickAttackState")
+			$"../../QuickAttack".restart_quick_attack()
+		else:
+			fsm.switch_to_state("DescendState")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bpq6tpx8ahx5f"
+path="res://.godot/imported/Cool Fast Beat.mp3-61f252b2f9a2a6431a98a5825b5a056a.mp3str"
+
+[deps]
+
+source_file="res://Resources/sound/Cool Fast Beat.mp3"
+dest_files=["res://.godot/imported/Cool Fast Beat.mp3-61f252b2f9a2a6431a98a5825b5a056a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

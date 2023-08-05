@@ -5,6 +5,7 @@ var jump_last_press: float   = INF
 var burrow_last_press: float = INF
 var last_ground: float       = INF
 
+var dash: bool = false
 var jump_cancel: bool = false
 
 func _physics_process(delta: float) -> void:
@@ -76,12 +77,20 @@ func _physics_process(delta: float) -> void:
 		# Set to running if on ground
 		if player.is_on_floor() and player.sprite.animation != "running" and player.sprite.animation != "out_of_burrow":
 			player.sprite.set_animation("running")
+			
+		# Dash Action
+		if (dash):
+			player.velocity.x = move_toward(player.velocity.x, target_speed * player.dash_multiplier, accel * delta * player.dash_multiplier)
+			$"../../Dash".play()
+			dash = false
 	else:
 		var decel: float = player.max_speed / player.deceleration_time
 		player.velocity.x = move_toward(player.velocity.x, 0, decel * delta)
 		
 		if player.sprite.animation != "out_of_burrow" and player.is_on_floor():
 			player.sprite.set_animation("idle")
+		
+		
 
 	player.move_and_slide()
 
@@ -95,6 +104,13 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	if event.is_action_released(&"jump") and player.velocity.y < 0.0:
 		jump_cancel = true
+	
+	if event.is_action_pressed(&"dash"):
+		dash = true
+	
+	if event.is_action_released(&"dash"):
+		$"../..".max_speed = 200
+	
 	
 
 
